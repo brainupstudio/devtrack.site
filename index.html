@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DevTrack: un tempo, ogni formato</title>
+<meta name="description" content="DevTrack traccia le tue ore una volta sola e le prepara nel formato di ogni piattaforma in cui devi riportarle. Per macOS, Windows e Linux.">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="preload" href="assets/fonts/FiraCode-Bold-wordmark.woff" as="font" type="font/woff" crossorigin>
+<meta property="og:type" content="website">
+<meta property="og:title" content="DevTrack: un tempo, ogni formato">
+<meta property="og:description" content="Traccia le tue ore una volta sola. DevTrack le prepara nel formato di ogni piattaforma in cui devi riportarle.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/png" href="assets/img/app-icon-64.png">
+<link rel="apple-touch-icon" href="assets/img/app-icon-180.png">
+<link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/appwin.css">
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+<a class="skip" href="#download" data-i18n="skip">Vai al download</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="g0" viewBox="0 0 14 14"><path d="M1 2.5h12M1 5.5h7M3 8.5h10M1 11.5h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="0.01 2.2" fill="none"/></symbol>
+  <symbol id="g1" viewBox="0 0 14 14"><path d="M2 1.5v6M2 10v2.5M5.3 3v9.5M8.6 1.5v3M8.6 7v5.5M12 1.5v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="0.01 2.2" fill="none"/></symbol>
+  <symbol id="g2" viewBox="0 0 14 14"><path d="M1.5 2h4M8.5 2h4M1.5 5.3h4M1.5 8.6h4M8.5 8.6h4M8.5 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="0.01 2.2" fill="none"/></symbol>
+</defs></svg>
+<div class="stage" aria-hidden="true">
+  <div class="fallback"></div>
+  <canvas id="scene"></canvas>
+  <div class="labels">
+    <div class="tag sheet" data-sheet="0"><div><span><svg class="glyph" width="14" height="14" aria-hidden="true"><use href="#g0"/></svg><span data-i18n="sheet.0">Azure DevOps</span></span><b>0.75</b><small data-i18n="ring.0u">ore decimali</small></div></div>
+    <div class="tag sheet" data-sheet="1"><div><span><svg class="glyph" width="14" height="14" aria-hidden="true"><use href="#g1"/></svg><span data-i18n="sheet.1">Timesheet</span></span><b>0.45</b><small data-i18n="ring.1u">ore.minuti</small></div></div>
+    <div class="tag sheet" data-sheet="2"><div><span><svg class="glyph" width="14" height="14" aria-hidden="true"><use href="#g2"/></svg><span data-i18n="sheet.2">Foglio ore</span></span><b>45</b><small data-i18n="ring.2u">minuti</small></div></div>
+    <i class="leader" data-leader="0"></i><i class="leader" data-leader="1"></i><i class="leader" data-leader="2"></i><i class="leader thread"></i>
+    <div class="tag ring" data-ring="0"><div><span class="name"><svg class="glyph" width="14" height="14" aria-hidden="true"><use href="#g0"/></svg><span data-i18n="ring.0">Azure DevOps</span></span><b class="digits" data-digits="r0">0.75</b><span class="unit" data-i18n="ring.0u">ore decimali</span><span class="from"><span data-i18n="ring.from">da</span> <b class="digits" data-digits="f0">0:44</b> <span data-i18n="s3.real">reali</span></span></div></div>
+    <div class="tag ring" data-ring="1"><div><span class="name"><svg class="glyph" width="14" height="14" aria-hidden="true"><use href="#g1"/></svg><span data-i18n="ring.1">Timesheet</span></span><b class="digits" data-digits="r1">0.45</b><span class="unit" data-i18n="ring.1u">ore.minuti</span><span class="from"><span data-i18n="ring.from">da</span> <b class="digits" data-digits="f1">0:44</b> <span data-i18n="s3.real">reali</span></span></div></div>
+    <div class="tag ring" data-ring="2"><div><span class="name"><svg class="glyph" width="14" height="14" aria-hidden="true"><use href="#g2"/></svg><span data-i18n="ring.2">Foglio ore</span></span><b class="digits" data-digits="r2">45</b><span class="unit" data-i18n="ring.2u">minuti</span><span class="from"><span data-i18n="ring.from">da</span> <b class="digits" data-digits="f2">0:44</b> <span data-i18n="s3.real">reali</span></span></div></div>
+  </div>
+</div>
+
+<header class="nav">
+  <a class="brand" href="#top" aria-label="DevTrack">
+    <img src="assets/img/mark.png" width="25" height="26" alt="">
+    <span>DevTrack</span>
+  </a>
+  <nav class="steps" data-i18n-aria="states.label" aria-label="Fasi">
+    <button type="button" data-step="0" data-panel-index="0"><span data-i18n="state.0">Sparse</span></button>
+    <button type="button" data-step="1" data-panel-index="1"><span data-i18n="state.1">Si raccolgono</span></button>
+    <button type="button" data-step="2" data-panel-index="3"><span data-i18n="state.2">Un tempo solo</span></button>
+    <button type="button" data-step="3" data-panel-index="4"><span data-i18n="state.3">Ogni formato</span></button>
+  </nav>
+  <div class="nav-right">
+    <div class="lang" role="group" data-i18n-aria="nav.lang" aria-label="Cambia lingua">
+      <button type="button" data-lang="it" aria-pressed="true">IT</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn small" href="#download" data-i18n="nav.download">Scarica</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="panel hero" data-panel="0">
+    <div class="pin">
+      <div class="hero-copy">
+        <h1><span data-i18n="hero.h1a">Un tempo.</span> <span class="go" data-i18n="hero.h1b">Ogni formato.</span></h1>
+        <div class="hero-side">
+          <p data-i18n="hero.sub">DevTrack traccia le tue ore una volta sola e le prepara per ogni piattaforma in cui devi riportarle.</p>
+          <div class="cta">
+            <a class="btn primary" id="hero-cta" href="#download"><span id="hero-cta-label">Scarica DevTrack</span><small id="hero-cta-meta"></small></a>
+            <a class="link" href="#download" data-i18n="hero.others">Altri sistemi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel side" data-panel="1">
+    <div class="pin">
+      <div class="copy">
+        <h2 data-i18n="s1.h">Le stesse ore, scritte tre volte.</h2>
+        <p data-i18n="s1.p">Ogni piattaforma le vuole nel suo formato e con il suo arrotondamento. A fine giornata le ricopi a mano, e qualcosa si perde.</p>
+        <dl class="same">
+          <dt data-i18n="s1.same">La stessa giornata, tre valori diversi</dt>
+          <dd><b>0.75<small data-i18n="ring.0u">ore decimali</small></b><span><svg class="glyph" width="14" height="14" aria-hidden="true"><use href="#g0"/></svg><span data-i18n="ring.0">Azure DevOps</span></span></dd>
+          <dd><b>0.45<small data-i18n="ring.1u">ore.minuti</small></b><span><svg class="glyph" width="14" height="14" aria-hidden="true"><use href="#g1"/></svg><span data-i18n="ring.1">Timesheet</span></span></dd>
+          <dd><b>45<small data-i18n="ring.2u">minuti</small></b><span><svg class="glyph" width="14" height="14" aria-hidden="true"><use href="#g2"/></svg><span data-i18n="ring.2">Foglio ore</span></span></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel side" data-panel="2">
+    <div class="pin">
+      <div class="copy">
+        <h2 data-i18n="s2.h">Tracciale una volta.</h2>
+        <p data-i18n="s2.p">Avvia il timer su un progetto o su un'attività. DevTrack tiene il tempo reale, al secondo.</p>
+        <button type="button" class="timer" aria-pressed="false" data-i18n-aria="s2.toggle" aria-label="Metti in pausa o riprendi il timer di esempio">
+          <span class="live"><i></i><span data-i18n="s2.task">Sessione in corso</span><em data-i18n="s2.meta">Sito web · Pagina di download</em></span>
+          <b class="digits big" data-digits="timer">00:44:00</b>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel app" data-panel="3">
+    <div class="pin">
+      <div class="copy">
+        <h2 data-i18n="app.h">Guardalo lavorare.</h2>
+        <p class="app-sub" data-i18n="app.sub">Quattro gesti, dall'inizio della giornata alle attività che ti aspettano.</p>
+        <ul class="phases">
+          <li data-phase="1"><strong data-i18n="app.p1h">Scrivi cosa fai.</strong><span data-i18n="app.p1"></span></li>
+          <li data-phase="2"><strong data-i18n="app.p2h">Avvia.</strong><span data-i18n="app.p2"></span></li>
+          <li data-phase="3"><strong data-i18n="app.p3h">Ferma.</strong><span data-i18n="app.p3"></span></li>
+          <li data-phase="4"><strong data-i18n="app.p4h">Prendi le attività da Azure DevOps.</strong><span data-i18n="app.p4"></span></li>
+        </ul>
+      </div>
+      <div class="aw-stage">
+        <div class="appwin" role="img" data-page="today" aria-label="">
+          <div class="aw-chrome"><i></i><i></i><i></i></div>
+          <div class="aw-frame">
+            <div class="aw-side">
+              <div class="aw-logo"><img src="assets/img/mark.png" width="23" height="24" alt=""><span>DevTrack</span></div>
+              <ul>
+                <li data-nav="today" data-cur="navtoday"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2"/><path d="M8 4.6V8l2.3 1.4"/></svg><span data-i18n="aw.n0">Oggi</span><kbd>⌘1</kbd></li>
+                <li data-nav="work" data-cur="navwork"><svg viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1.2"/><rect x="9" y="2" width="5" height="5" rx="1.2"/><rect x="2" y="9" width="5" height="5" rx="1.2"/><rect x="9" y="9" width="5" height="5" rx="1.2"/></svg><span data-i18n="aw.n1">Lavoro</span><kbd>⌘2</kbd></li>
+                <li><svg viewBox="0 0 16 16"><path d="M5.5 4h8.5M5.5 8h8.5M5.5 12h8.5M2 4h.6M2 8h.6M2 12h.6"/></svg><span data-i18n="aw.n2">Rendicontazione</span><kbd>⌘3</kbd></li>
+                <li><svg viewBox="0 0 16 16"><path d="M3.5 13V9.5M8 13V3.5M12.5 13V7"/></svg><span data-i18n="aw.n3">Statistiche</span><kbd>⌘4</kbd></li>
+              </ul>
+              <div class="aw-settings"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="2.6"/><path d="M8 1.6v1.6M8 12.8v1.6M1.6 8h1.6M12.8 8h1.6M3.5 3.5l1.1 1.1M11.4 11.4l1.1 1.1M3.5 12.5l1.1-1.1M11.4 4.6l1.1-1.1"/></svg><span data-i18n="aw.n4">Impostazioni</span></div>
+            </div>
+
+            <div class="aw-pages">
+              <!-- Oggi -->
+              <div class="aw-page aw-today">
+                <div class="aw-top"><strong data-i18n="aw.n0">Oggi</strong><span data-i18n="aw.date">venerdì 20 novembre 2026</span><span class="aw-sp"></span><span class="aw-b" data-i18n="aw.csv">Esporta CSV</span><span class="aw-b" data-i18n="aw.add">+ Aggiungi sessione</span></div>
+                <div class="aw-body">
+                  <div class="aw-timer">
+                    <div class="aw-field" data-cur="field"><span class="aw-ph" data-i18n="aw.ph">Su quale attività stai lavorando?</span><span class="aw-typed"></span><i class="aw-caret"></i>
+                      <div class="aw-suggest">
+                        <div class="aw-sg" data-cur="sug0"><i class="aw-dot" style="--c:#0B83D9"></i><b data-i18n="aw.a0">#4812 Login lento su reti deboli</b><span data-i18n="aw.pc0">Portale clienti · Northwind</span></div>
+                        <div class="aw-sg"><i class="aw-dot" style="--c:#0B83D9"></i><b data-i18n="aw.a1">Revisione del codice</b><span data-i18n="aw.pc0">Portale clienti · Northwind</span></div>
+                        <div class="aw-sg"><i class="aw-dot" style="--c:#D94182"></i><b data-i18n="aw.a2">Riunione giornaliera</b><span data-i18n="aw.pc2">Riunioni interne</span></div>
+                      </div>
+                    </div>
+                    <div class="aw-select"><span class="aw-ph" data-i18n="aw.choose">Scegli progetto</span><span class="aw-val" data-i18n="aw.pc0">Portale clienti · Northwind</span><svg viewBox="0 0 12 12"><path d="M3 4.5 6 7.5l3-3"/></svg></div>
+                    <i class="aw-live"></i>
+                    <b class="aw-clock">0:00:00</b>
+                    <span class="aw-b aw-white aw-start" data-cur="start" data-i18n="aw.start">Avvia</span>
+                    <span class="aw-b aw-pause" data-i18n="aw.pause">Pausa</span><span class="aw-b aw-white aw-stop" data-cur="stop" data-i18n="aw.stop">Ferma</span><span class="aw-b aw-more">···</span>
+                  </div>
+                  <div class="aw-period">
+                    <span class="aw-b aw-sq"><svg viewBox="0 0 12 12"><path d="M7.5 3 4.5 6l3 3"/></svg></span>
+                    <span class="aw-b aw-datef"><b>20/11/2026</b><span data-i18n="aw.dow">venerdì</span></span>
+                    <span class="aw-b aw-sq"><svg viewBox="0 0 12 12"><path d="M4.5 3l3 3-3 3"/></svg></span>
+                    <span class="aw-b aw-dim" data-i18n="aw.n0">Oggi</span>
+                    <span class="aw-seg"><b data-i18n="aw.day">Giorno</b><span data-i18n="aw.week">Settimana</span><span data-i18n="aw.month">Mese</span></span>
+                    <span class="aw-sp"></span>
+                    <span class="aw-seg"><b data-i18n="aw.list">Elenco</b><span data-i18n="aw.cal">Calendario</span><span>Timesheet</span></span>
+                  </div>
+                  <div class="aw-sum">
+                    <strong class="aw-total">5 h 27 min</strong><span><span data-i18n="aw.rec">registrati</span> · <span class="aw-count">4</span> <span data-i18n="aw.sessions">sessioni</span></span>
+                    <span class="aw-sp"></span>
+                    <span class="aw-status"><span class="aw-st-done"><svg viewBox="0 0 12 12"><path d="M2.5 6.5 5 9l4.5-5.5"/></svg><span data-i18n="aw.done">Tutte le sessioni completate</span></span><span class="aw-st-run"><i></i><span data-i18n="aw.running">Una sessione è ancora in corso</span></span></span>
+                  </div>
+                  <div class="aw-bars">
+                    <div class="aw-bar-pc" style="--c:#0B83D9"><span data-i18n="aw.pr0">Portale clienti</span></div>
+                    <div style="--c:#2DA608;flex-grow:7153"><span data-i18n="aw.pr1">Migrazione dati</span></div>
+                    <div style="--c:#D94182;flex-grow:1152"><span></span></div>
+                  </div>
+                  <div class="aw-table">
+                    <div class="aw-th"><span data-i18n="aw.c0">Attività / progetto</span><span data-i18n="aw.c1">Orario</span><span data-i18n="aw.c2">Durata</span><span></span></div>
+                    <div class="aw-row aw-new"><div class="aw-t"><strong><i class="aw-dot" style="--c:#0B83D9"></i><span data-i18n="aw.a0">#4812 Login lento su reti deboli</span></strong><span data-i18n="aw.pc0">Portale clienti · Northwind</span></div><span class="aw-time">14:05 → 14:49</span><b class="aw-dur">0:44:11</b><span class="aw-acts"><svg viewBox="0 0 16 16"><path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13"/></svg><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7-4.5z"/></svg><span class="aw-b aw-sq">···</span></span></div>
+                    <div class="aw-row"><div class="aw-t"><strong><i class="aw-dot" style="--c:#D94182"></i><span data-i18n="aw.a2">Riunione giornaliera</span></strong><span data-i18n="aw.pc2">Riunioni interne</span></div><span class="aw-time">08:30 → 08:49</span><b class="aw-dur">0:19:12</b><span class="aw-acts"><svg viewBox="0 0 16 16"><path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13"/></svg><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7-4.5z"/></svg><span class="aw-b aw-sq">···</span></span></div>
+                    <div class="aw-row"><div class="aw-t"><strong><i class="aw-dot" style="--c:#0B83D9"></i><span data-i18n="aw.a0">#4812 Login lento su reti deboli</span></strong><span data-i18n="aw.pc0">Portale clienti · Northwind</span></div><span class="aw-time">08:52 → 11:07</span><b class="aw-dur">2:15:20</b><span class="aw-acts"><svg viewBox="0 0 16 16"><path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13"/></svg><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7-4.5z"/></svg><span class="aw-b aw-sq">···</span></span></div>
+                    <div class="aw-row"><div class="aw-t"><strong><i class="aw-dot" style="--c:#0B83D9"></i><span data-i18n="aw.a1">Revisione del codice</span></strong><span data-i18n="aw.pc0">Portale clienti · Northwind</span></div><span class="aw-time">11:10 → 12:03</span><b class="aw-dur">0:53:20</b><span class="aw-acts"><svg viewBox="0 0 16 16"><path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13"/></svg><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7-4.5z"/></svg><span class="aw-b aw-sq">···</span></span></div>
+                    <div class="aw-row"><div class="aw-t"><strong><i class="aw-dot" style="--c:#2DA608"></i><span data-i18n="aw.a3">Verifica dei dati importati</span></strong><span data-i18n="aw.pc1">Migrazione dati · Banca Aurora</span></div><span class="aw-time">12:05 → 14:04</span><b class="aw-dur">1:59:13</b><span class="aw-acts"><svg viewBox="0 0 16 16"><path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13"/></svg><svg viewBox="0 0 16 16"><path d="M5 3.5v9l7-4.5z"/></svg><span class="aw-b aw-sq">···</span></span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lavoro › Portale clienti -->
+              <div class="aw-page aw-work">
+                <div class="aw-top"><strong data-i18n="aw.n1">Lavoro</strong><span class="aw-sp"></span><span class="aw-b" data-i18n="aw.startsess">Avvia una sessione</span></div>
+                <div class="aw-body">
+                  <div class="aw-crumb"><span class="aw-b aw-sq"><svg viewBox="0 0 12 12"><path d="M7.5 3 4.5 6l3 3"/></svg></span><u data-i18n="aw.projects">Progetti</u><span>/</span><span data-i18n="aw.pr0">Portale clienti</span></div>
+                  <div class="aw-ptitle"><i class="aw-dot" style="--c:#0B83D9"></i><strong data-i18n="aw.pr0">Portale clienti</strong><span class="aw-sp"></span><span class="aw-b" data-i18n="aw.editp">Modifica progetto</span><span class="aw-b aw-white" data-i18n="aw.start">Avvia</span></div>
+                  <div class="aw-pstats">
+                    <div><span data-i18n="aw.client">Cliente</span><b class="sans">Northwind</b></div>
+                    <div><span data-i18n="aw.recd">Registrato</span><b>18 h 40 min</b></div>
+                    <div><span data-i18n="aw.sess">Sessioni</span><b>14</b></div>
+                    <div><span data-i18n="aw.open">Attività aperte</span><b class="aw-opencount">2</b></div>
+                    <div><span data-i18n="aw.planned">Ore previste</span><b class="aw-plan">8 h 00 min</b></div>
+                  </div>
+                  <div class="aw-filter"><span class="aw-b aw-input" data-i18n="aw.filter">Filtra per titolo o #numero</span><span class="aw-b"><span data-i18n="aw.open">Attività aperte</span><svg viewBox="0 0 12 12"><path d="M3 4.5 6 7.5l3-3"/></svg></span><span class="aw-b" data-cur="add" data-i18n="aw.addtask">+ Aggiungi attività</span></div>
+                  <div class="aw-table aw-wtable">
+                    <div class="aw-th"><span data-i18n="aw.task">Attività</span><span data-i18n="aw.last">Ultima sessione</span><span data-i18n="aw.recd">Registrato</span><span></span></div>
+                    <div class="aw-row"><div class="aw-t"><strong><span data-i18n="aw.w0">Login lento su reti deboli</span></strong><span>DevOps #4812 · Northwind.Portale · Active</span></div><span class="aw-time">20/11/2026</span><b class="aw-dur">6 h 20 min / 8 h 00 min</b><span class="aw-acts"><svg viewBox="0 0 16 16"><path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13"/></svg><span class="aw-b" data-i18n="aw.start">Avvia</span><span class="aw-b aw-sq">···</span></span></div>
+                    <div class="aw-row"><div class="aw-t"><strong><span data-i18n="aw.a1">Revisione del codice</span></strong><span data-i18n="aw.local">Attività locale</span></div><span class="aw-time">20/11/2026</span><b class="aw-dur">4 h 05 min</b><span class="aw-acts"><svg viewBox="0 0 16 16"><path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13"/></svg><span class="aw-b" data-i18n="aw.start">Avvia</span><span class="aw-b aw-sq">···</span></span></div>
+                    <div class="aw-row aw-imp" data-imp="0"><div class="aw-t"><strong><span data-i18n="aw.i0">Script di migrazione 2026</span></strong><span>DevOps #5103 · Northwind.Portale · New</span></div><span class="aw-time">·</span><b class="aw-dur">0 min / 6 h 00 min</b><span class="aw-acts"><svg viewBox="0 0 16 16"><path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13"/></svg><span class="aw-b" data-i18n="aw.start">Avvia</span><span class="aw-b aw-sq">···</span></span></div>
+                    <div class="aw-row aw-imp" data-imp="1"><div class="aw-t"><strong><span data-i18n="aw.i1">Nuovo editor</span></strong><span>DevOps #5110 · Northwind.Portale · New</span></div><span class="aw-time">·</span><b class="aw-dur">0 min / 16 h 00 min</b><span class="aw-acts"><svg viewBox="0 0 16 16"><path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13"/></svg><span class="aw-b" data-i18n="aw.start">Avvia</span><span class="aw-b aw-sq">···</span></span></div>
+                    <div class="aw-row aw-imp" data-imp="2"><div class="aw-t"><strong><span data-i18n="aw.i2">Esportazione CSV</span></strong><span>DevOps #5121 · Northwind.Portale · Active</span></div><span class="aw-time">·</span><b class="aw-dur">0 min / 4 h 00 min</b><span class="aw-acts"><svg viewBox="0 0 16 16"><path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13"/></svg><span class="aw-b" data-i18n="aw.start">Avvia</span><span class="aw-b aw-sq">···</span></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Aggiungi attività -->
+            <div class="aw-scrim"></div>
+            <div class="aw-dialog">
+              <div class="aw-dh"><strong data-i18n="aw.addtitle">Aggiungi attività</strong><span data-i18n="aw.inproj">In «Portale clienti»</span><svg viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6"/></svg></div>
+              <span class="aw-seg aw-tabs"><span data-i18n="aw.local">Attività locale</span><b data-i18n="aw.fromdo">Da Azure DevOps</b></span>
+              <div class="aw-dfilter"><span class="aw-seg"><b data-i18n="aw.mine">Assegnate a me</b><span data-i18n="aw.search">Cerca</span></span><span class="aw-b aw-input" data-i18n="aw.filter">Filtra per titolo o #numero</span><span class="aw-b"><span data-i18n="aw.allp">Tutti i progetti DevOps</span><svg viewBox="0 0 12 12"><path d="M3 4.5 6 7.5l3-3"/></svg></span><span class="aw-b" data-i18n="aw.refresh">Aggiorna</span></div>
+              <p class="aw-ro" data-i18n="aw.ro">Azure DevOps · northwind · sola lettura</p>
+              <div class="aw-wi" data-cur="chk0"><i class="aw-chk" data-chk="0"></i><div><b data-i18n="aw.i0">Script di migrazione 2026</b><span>#5103 · Task · Northwind.Portale · New</span></div><span class="aw-b" data-i18n="aw.start">Avvia</span></div>
+              <div class="aw-wi" data-cur="chk1"><i class="aw-chk" data-chk="1"></i><div><b data-i18n="aw.i1">Nuovo editor</b><span>#5110 · Task · Northwind.Portale · New</span></div><span class="aw-b" data-i18n="aw.start">Avvia</span></div>
+              <div class="aw-wi" data-cur="chk2"><i class="aw-chk" data-chk="2"></i><div><b data-i18n="aw.i2">Esportazione CSV</b><span>#5121 · User Story · Northwind.Portale · Active</span></div><span class="aw-b" data-i18n="aw.start">Avvia</span></div>
+              <div class="aw-wi"><i class="aw-chk"></i><div><b data-i18n="aw.i3">Conservazione del registro di controllo</b><span>#5130 · Task · Northwind.Portale · New</span></div><span class="aw-b" data-i18n="aw.start">Avvia</span></div>
+              <div class="aw-df"><span class="aw-selcount"></span><span class="aw-sp"></span><span class="aw-b" data-i18n="aw.cancel">Annulla</span><span class="aw-b aw-white aw-import" data-cur="import"></span></div>
+            </div>
+          </div>
+          <svg class="aw-cursor" viewBox="0 0 20 22" width="20" height="22" aria-hidden="true"><path d="M2 1.5v16l4.3-3.9 2.7 6.4 2.6-1.1-2.7-6.3h6z" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel conv" data-panel="4">
+    <div class="pin">
+      <div class="copy">
+        <h2 data-i18n="s3.h">Pronte per ogni piattaforma.</h2>
+        <div class="conv-side">
+          <p class="example"><span><b class="digits" data-digits="real">0:44</b><small data-i18n="s3.real">reali</small></span><i><span class="sr" data-i18n="s3.to">diventano</span></i><span class="go"><b class="digits" data-digits="round">0:45</b><small data-i18n="s3.rounded">arrotondati</small></span></p>
+          <p data-i18n="s3.p">Accanto al tempo reale trovi il valore da inserire in ogni sistema, già arrotondato e nel formato giusto.</p>
+        </div>
+      </div>
+      <ul class="conv-list">
+        <li><span data-i18n="ring.0">Azure DevOps</span><b class="digits" data-digits="m0">0.75</b><small data-i18n="ring.0u">ore decimali</small></li>
+        <li><span data-i18n="ring.1">Timesheet</span><b class="digits" data-digits="m1">0.45</b><small data-i18n="ring.1u">ore.minuti</small></li>
+        <li><span data-i18n="ring.2">Foglio ore</span><b class="digits" data-digits="m2">45</b><small data-i18n="ring.2u">minuti</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="panel dl" id="download" data-panel="5">
+    <div class="dl-inner">
+      <h2 data-i18n="dl.h">Scarica DevTrack.</h2>
+      <p class="unsigned"><span id="dl-version"></span> <span data-i18n="dl.unsigned">Questa versione non è ancora firmata: al primo avvio il sistema mostra un avviso.</span></p>
+      <p class="mobile-note" data-i18n="dl.mobile" hidden>DevTrack è un'app per computer. Apri questa pagina dal tuo Mac o PC per scaricarla.</p>
+      <ul class="os-list">
+        <li data-os="mac">
+          <div class="os-head">
+            <div class="os-name"><strong data-i18n="dl.mac">macOS</strong><em class="yours" data-i18n="dl.yours" hidden>Il tuo sistema</em></div>
+            <div class="req"><span data-i18n="dl.mac.req">macOS 11 o successivo, Apple silicon e Intel</span><code class="file" data-file="mac"></code></div>
+            <a class="btn" data-dl="mac" href="#"><span data-i18n="dl.get">Scarica</span> <small data-i18n="dl.mac.file">.dmg</small></a>
+          </div>
+          <details><summary data-i18n="dl.first">Primo avvio</summary><p data-i18n="dl.mac.steps"></p></details>
+        </li>
+        <li data-os="win">
+          <div class="os-head">
+            <div class="os-name"><strong data-i18n="dl.win">Windows</strong><em class="yours" data-i18n="dl.yours" hidden>Il tuo sistema</em><em class="preview" data-i18n="dl.preview">Versione di anteprima</em></div>
+            <div class="req"><span data-i18n="dl.win.req">Windows 10 e 11, 64 bit</span><code class="file" data-file="win"></code></div>
+            <a class="btn" data-dl="win" href="#"><span data-i18n="dl.get">Scarica</span> <small data-i18n="dl.win.file">.zip</small></a>
+          </div>
+          <details><summary data-i18n="dl.first">Primo avvio</summary><p><span data-i18n="dl.win.steps"></span> <span class="warn" data-i18n="dl.previewNote"></span></p></details>
+        </li>
+        <li data-os="linux">
+          <div class="os-head">
+            <div class="os-name"><strong data-i18n="dl.linux">Linux</strong><em class="yours" data-i18n="dl.yours" hidden>Il tuo sistema</em><em class="preview" data-i18n="dl.preview">Versione di anteprima</em></div>
+            <div class="req"><span data-i18n="dl.linux.req">Linux 64 bit</span><code class="file" data-file="linux"></code></div>
+            <a class="btn" data-dl="linux" href="#"><span data-i18n="dl.get">Scarica</span> <small data-i18n="dl.linux.file">.tar.gz</small></a>
+          </div>
+          <details><summary data-i18n="dl.first">Primo avvio</summary><p><span data-i18n="dl.linux.steps"></span> <span class="warn" data-i18n="dl.previewNote"></span></p></details>
+        </li>
+      </ul>
+    </div>
+    <ul class="facts">
+      <li><strong data-i18n="fact.0h"></strong><span data-i18n="fact.0"></span></li>
+      <li><strong data-i18n="fact.1h"></strong><span data-i18n="fact.1"></span></li>
+      <li><strong data-i18n="fact.2h"></strong><span data-i18n="fact.2"></span></li>
+    </ul>
+    <footer class="foot">
+      <span class="brand"><img src="assets/img/app-icon-64.png" width="20" height="20" alt=""> DevTrack <span id="foot-version"></span></span>
+      <a id="foot-notes" href="#" data-i18n="foot.notes">Note di rilascio</a>
+      <a href="#top" data-i18n="foot.top">Torna su</a>
+    </footer>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,5 @@
+cook/
+cook-archive/
+node_modules/
+.DS_Store
+.impeccable/hook.cache.json
