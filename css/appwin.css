@@ -2,7 +2,7 @@
    (design size 1120 x 800), then scaled to the space it gets. Colours and measures are the app's. */
 
 .app { height: 440vh; }
-.app .pin { align-items: stretch; gap: clamp(24px, 3vw, 48px); padding-top: 84px; padding-bottom: 32px; }
+.app .pin { align-items: stretch; gap: clamp(24px, 3vw, 48px); padding-top: 84px; padding-bottom: 32px; overflow-x: clip; }   /* the window is scaled with a transform: its layout box must not widen the page */
 .app .copy { flex: 0 0 clamp(256px, 22.5vw, 326px); align-self: center; opacity: var(--in, 1); transform: translate3d(0, calc((1 - var(--in, 1)) * 40px), 0); }
 .app .copy > * { opacity: 1; transform: none; }
 .app h2 { font-size: clamp(32px, 3.3vw, 54px); }

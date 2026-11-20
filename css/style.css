@@ -197,10 +197,10 @@ body { user-select: none; -webkit-user-select: none; }
 .cli-box { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 5px 5px 5px 14px; border: 1px solid var(--line); border-radius: 10px; background: #0d0d0f; }
 .cli-box code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; scrollbar-width: none; font: 400 13.5px/1.5 var(--mono); color: var(--ink); user-select: all; -webkit-user-select: all; }
 .cli-box code::-webkit-scrollbar { display: none; }
-.copy { flex: none; height: 32px; padding: 0 14px; border: 1px solid #3a3a40; border-radius: 7px; background: transparent; color: var(--ink); font: 500 13px var(--sans); cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
-.copy:hover { background: #1d1d21; border-color: #55555c; }
-.copy:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-.copy.done { color: var(--go); border-color: rgba(245,165,36,.45); }
+.copy-btn { flex: none; height: 32px; padding: 0 14px; border: 1px solid #3a3a40; border-radius: 7px; background: transparent; color: var(--ink); font: 500 13px var(--sans); cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
+.copy-btn:hover { background: #1d1d21; border-color: #55555c; }
+.copy-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.copy-btn.done { color: var(--go); border-color: rgba(245,165,36,.45); }
 .os-list .btn { width: 200px; justify-self: end; justify-content: flex-start; padding: 0 20px 0 24px; gap: 12px; }
 .os-list .btn small { width: auto; text-align: left; padding-left: 12px; border-left: 1px solid currentColor; opacity: .7; }
 .os-list li.me .btn { height: 56px; font-size: 17px; background: var(--ink); color: var(--bg); border-color: var(--ink); }
@@ -269,6 +269,28 @@ details p { font-size: 15px; max-width: 60ch; padding: 2px 0 8px 18px; color: #c
   .file { display: none; }
   .dl { padding-top: 14vh; }
   .foot { flex-wrap: wrap; gap: 16px 22px; }
+}
+/* phones: brand, language and download share one row without touching */
+@media (max-width: 480px) {
+  .nav { padding-top: 12px; padding-bottom: 12px; column-gap: 10px; }
+  .brand { font-size: 18px; gap: 6px; transform: none; }
+  .nav .brand img { height: 21px; }
+  .nav-right { gap: 8px; }
+  .lang button { min-width: 34px; height: 30px; font-size: 12.5px; }
+  .btn.small { height: 36px; padding: 0 13px; font-size: 13.5px; }
+  .live { flex-wrap: wrap; row-gap: 4px; font-size: 16px; }
+  .same { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .same dd { padding-right: 10px; min-width: 0; } .same dd + dd { padding-left: 10px; }
+  .same span { flex-wrap: wrap; overflow-wrap: anywhere; }
+}
+@media (max-width: 860px) and (max-height: 700px) {
+  h1 { font-size: clamp(38px, 11vw, 46px); }
+  .hero-side p { font-size: 15.5px; line-height: 1.4; }
+  .cta { margin-top: 12px; }
+  h2 { font-size: clamp(34px, 10vw, 44px); }
+  .side p { margin-top: 12px; font-size: 16px; }
+  .digits.big { font-size: 50px; }
+  .timer { margin-top: 16px; gap: 8px; }
 }
 .no-webgl .conv-list { position: static; width: auto; height: auto; overflow: visible; clip-path: none; display: flex; flex-direction: column; gap: 10px; position: absolute; left: auto; right: var(--pad); top: 20vh; }
 .no-webgl .conv-list li { display: grid; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; }

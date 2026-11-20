@@ -60,7 +60,7 @@ function setupDownload() {
   $$('[data-file]').forEach((c) => { c.textContent = RELEASE.files[c.dataset.file]; });
   // the terminal install: the command, and a button that copies it
   $$('[data-cmd]').forEach((c) => { c.textContent = INSTALL[c.dataset.cmd]; });
-  $$('.cli .copy').forEach((b) => b.addEventListener('click', async () => {
+  $$('.cli .copy-btn').forEach((b) => b.addEventListener('click', async () => {
     const cmd = $('[data-cmd]', b.parentNode).textContent;
     try { await navigator.clipboard.writeText(cmd); } catch { return; }
     b.textContent = t('dl.copied');
@@ -122,7 +122,15 @@ function measure() {
   appBox = { top: r.top + y0, span: Math.max(1, r.height - innerHeight) };
   snaps = centres.slice(0, APP).concat(APP_STOPS.map((q) => appBox.top + appBox.span * q), centres.slice(APP + 1));
   window.__snaps = snaps;                          // read by the interaction tests
+  // the room the sphere and its three value cards get in the conversion section: under the nav, above the copy
+  const conv = panels[4], copy = $('.copy', conv), card = ringTags[0]?.firstElementChild;
+  if (sceneApi && copy && card) sceneApi.setRoom({
+    top: $('.nav').getBoundingClientRect().bottom + 12,
+    bottom: copy.offsetTop - 28,
+    card: card.offsetHeight / 2 + 6, cardW: card.offsetWidth + 16, pad: parseFloat(getComputedStyle(conv).paddingLeft) || 24,
+  });
 }
+let sceneApi = null;                             // the 3D scene, once it is built
 const APP = 3;                                   // index of the app section among the panels
 const APP_STOPS = [0.05, 0.35, 0.65, 0.95];      // one stop per step of the app window
 const appPanel = panels[APP];
@@ -161,7 +169,8 @@ function paintLabels(a, s) {
   ringTags.forEach((el, i) => {
     const [ux, uy] = SLOTS[i], r = a.radius;
     const sx = a.centre.x + ux * r * 1.02, sy = a.centre.y + uy * r * 1.02;      // on the surface
-    const cx = a.centre.x + ux * r * 1.5, cy = a.centre.y + uy * r * 1.5;        // where the card starts
+    const dy = uy ? Math.sign(uy) * Math.max(Math.abs(uy) * r * 1.5, el.firstElementChild.offsetHeight / 2 + 8) : 0;   // two cards on one side never overlap
+    const cx = a.centre.x + ux * r * 1.5, cy = a.centre.y + dy;                  // where the card starts
     el.style.opacity = ro.toFixed(3);
     el.style.transform = `translate(${cx.toFixed(1)}px, ${cy.toFixed(1)}px) translate(${ux < 0 ? '-100%' : '0'}, -50%)`;
     const ln = leaders[i];
@@ -201,7 +210,7 @@ async function boot() {
     const probe = document.createElement('canvas');
     if (!(probe.getContext('webgl2') || probe.getContext('webgl'))) throw new Error('no webgl');
     const { createScene } = await import('./scene.js');
-    scene = createScene(canvas, { reduced, light: lightScene });
+    scene = sceneApi = createScene(canvas, { reduced, light: lightScene });
   } catch (err) {
     root.classList.add('no-webgl');
   }

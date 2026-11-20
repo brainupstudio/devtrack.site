@@ -413,7 +413,7 @@ export function createScene(canvas, { reduced = false, light = false } = {}) {
   stars.renderOrder = -1;
   scene.add(stars, glass, pane, points);
 
-  let w = 1, h = 1, narrow = false, s = 0, time = 0, aside = 0;
+  let w = 1, h = 1, narrow = false, s = 0, time = 0, aside = 0, room = null;
 
   function resize() {
     w = canvas.clientWidth; h = canvas.clientHeight;
@@ -430,15 +430,25 @@ export function createScene(canvas, { reduced = false, light = false } = {}) {
     const fit = Math.min(1, halfW / 5.9);
     let x, y, sc;
     if (narrow) {
-      const k = Math.min(1, halfW / 1.85);
-      x = 0; y = mix(1.0, 1.05, sm(0, 2, st)); sc = mix(k * 0.8, k * 0.9, sm(0.2, 1.8, st));
+      // short phones (360 x 640): the object gets smaller and moves up, so it clears the copy below
+      const tall = Math.min(1, Math.max(0.74, h / w / 2.1)), k = Math.min(1, halfW / 1.85) * tall;
+      x = 0; y = mix(1.0, 1.05, sm(0, 2, st)) + (1 - tall) * 2.4; sc = mix(k * 0.8, k * 0.9, sm(0.2, 1.8, st));
       sc = mix(sc, k * 0.62, sm(2.2, 3, st)); y = mix(y, 1.2, sm(2.2, 3, st));
       y = mix(y, 3.1, sm(3.2, 4, st));
     } else {
       const side = halfW * 0.33;
+      // the converted state: the sphere and its three cards must fit between the nav and the copy
+      let scC = 0.82, yC = 0.5;
+      if (room) {
+        const wpp = (2 * Math.tan((16 * Math.PI) / 180) * 9) / h;          // world units per pixel at the sphere
+        const half = (room.bottom - room.top) / 2;
+        const rMax = Math.min(half - 6, (half - room.card) / 0.654, (w / 2 - room.pad - room.cardW) / 1.5);
+        const scFit = Math.max(0.3, (rMax * wpp) / R);
+        if (scFit < scC) { scC = scFit; yC = (h / 2 - (room.top + room.bottom) / 2) * wpp; }
+      }
       x = mix(0, side, sm(0.1, 1.1, st)); x = mix(x, 0, sm(2.25, 3, st)); x = mix(x, halfW * 0.56, sm(3.2, 4, st));
-      y = mix(0.74, -0.2, sm(0.1, 1.1, st)); y = mix(y, 0.5, sm(2.25, 3, st)); y = mix(y, -0.3, sm(3.2, 4, st));
-      sc = mix(fit, 1.12, sm(0.3, 1.6, st)); sc = mix(sc, 0.82, sm(2.25, 3, st)); sc = mix(sc, 0.72, sm(3.2, 4, st));
+      y = mix(0.74, -0.2, sm(0.1, 1.1, st)); y = mix(y, yC, sm(2.25, 3, st)); y = mix(y, -0.3, sm(3.2, 4, st));
+      sc = mix(fit, 1.12, sm(0.3, 1.6, st)); sc = mix(sc, scC, sm(2.25, 3, st)); sc = mix(sc, 0.72, sm(3.2, 4, st));
     }
     // while the app window is on screen the sphere waits behind its upper right corner
     if (narrow) { y = mix(y, 3.4, aside); sc = mix(sc, sc * 0.6, aside); }
@@ -489,6 +499,7 @@ export function createScene(canvas, { reduced = false, light = false } = {}) {
   resize();
   return {
     resize,
+    setRoom(r) { room = r; },
     frame(state, t, intro = 1, px = 0, py = 0, scroll = 0, yaw = 0, pitch = 0, asideNow = 0) {
       s = state; aside = asideNow; time = reduced ? 20 : t;
       uniforms.uIntro.value = reduced ? 1 : intro;
