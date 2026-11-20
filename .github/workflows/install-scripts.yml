@@ -1,0 +1,55 @@
+# Tries install.sh and install.ps1 against the latest published release, on a clean machine
+# of each system. Runs when the scripts change, and by hand (Actions › Install scripts).
+name: Install scripts
+
+on:
+  push:
+    branches: [main]
+    paths: ["install.sh", "install.ps1", ".github/workflows/install-scripts.yml"]
+  workflow_dispatch:
+
+jobs:
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install into a test folder
+        run: DEVTRACK_DIR="$RUNNER_TEMP/apps" sh install.sh
+      - name: The app is there, unmarked and intact
+        run: |
+          app="$RUNNER_TEMP/apps/DevTrack.app"
+          test -x "$app/Contents/MacOS/devtrack"
+          if xattr "$app" | grep -q com.apple.quarantine; then echo "quarantined"; exit 1; fi
+          codesign --verify --strict "$app"
+          defaults read "$app/Contents/Info.plist" CFBundleShortVersionString
+
+  linux:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install
+        run: sh install.sh
+      - name: Program, icon and menu entry are there
+        run: |
+          test -x "$HOME/.local/bin/devtrack"
+          test -f "$HOME/.local/share/applications/devtrack.desktop"
+          test -f "$HOME/.local/share/icons/hicolor/512x512/apps/devtrack.png"
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Windows PowerShell 5.1, the one every Windows 10 and 11 has, run the way the site says
+      - name: Install
+        shell: powershell
+        run: Get-Content -Raw install.ps1 | Invoke-Expression
+      - name: Program and Start menu entry are there, unmarked
+        shell: powershell
+        run: |
+          $exe = Join-Path $env:LOCALAPPDATA 'Programs\DevTrack\DevTrack.exe'
+          if (-not (Test-Path $exe)) { throw 'DevTrack.exe is missing' }
+          if (Get-Item $exe -Stream Zone.Identifier -ErrorAction SilentlyContinue) { throw 'DevTrack.exe is marked as downloaded' }
+          $link = Join-Path ([Environment]::GetFolderPath('Programs')) 'DevTrack.lnk'
+          if (-not (Test-Path $link)) { throw 'Start menu entry is missing' }
+          (Get-Item $exe).VersionInfo.FileVersion
+          Get-Process -Name DevTrack -ErrorAction SilentlyContinue | Stop-Process -Force

@@ -13,3 +13,11 @@ export const RELEASE = {
 export const downloadUrl = (os) =>
   `https://github.com/${RELEASE.repo}/releases/download/v${RELEASE.version}/${RELEASE.files[os]}`;
 export const notesUrl = () => `https://github.com/${RELEASE.repo}/releases/tag/v${RELEASE.version}`;
+
+// Install from a terminal: a file fetched this way is not marked as downloaded from the
+// internet, so the system opens the app without the warning shown for browser downloads.
+const SITE = 'https://brainupstudio.github.io/devtrack.site';
+export const INSTALL = {
+  sh: `curl -fsSL ${SITE}/install.sh | sh`,
+  ps: `irm ${SITE}/install.ps1 | iex`,
+};

@@ -191,6 +191,16 @@ body { user-select: none; -webkit-user-select: none; }
 .preview { font-style: normal; align-self: flex-start; margin-top: 6px; padding: 8px 12px; border: 1px solid #3a3a40; border-radius: 999px; font-size: 12.5px; font-weight: 500; line-height: 1.3; color: #c4c4c6; white-space: nowrap; }
 .req { display: grid; gap: 3px; color: #c4c4c6; font-size: 15px; }
 .file { font: 400 13px var(--mono); color: #bdbdc2; }
+/* the terminal install: the command in a quiet field, copied with one click */
+.cli { margin-top: 12px; display: grid; gap: 6px; }
+.cli-label { font-size: 14px; color: var(--mute); }
+.cli-box { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 5px 5px 5px 14px; border: 1px solid var(--line); border-radius: 10px; background: #0d0d0f; }
+.cli-box code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; scrollbar-width: none; font: 400 13.5px/1.5 var(--mono); color: var(--ink); user-select: all; -webkit-user-select: all; }
+.cli-box code::-webkit-scrollbar { display: none; }
+.copy { flex: none; height: 32px; padding: 0 14px; border: 1px solid #3a3a40; border-radius: 7px; background: transparent; color: var(--ink); font: 500 13px var(--sans); cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
+.copy:hover { background: #1d1d21; border-color: #55555c; }
+.copy:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.copy.done { color: var(--go); border-color: rgba(245,165,36,.45); }
 .os-list .btn { width: 200px; justify-self: end; justify-content: flex-start; padding: 0 20px 0 24px; gap: 12px; }
 .os-list .btn small { width: auto; text-align: left; padding-left: 12px; border-left: 1px solid currentColor; opacity: .7; }
 .os-list li.me .btn { height: 56px; font-size: 17px; background: var(--ink); color: var(--bg); border-color: var(--ink); }

@@ -1,5 +1,5 @@
 import { STRINGS } from './i18n.js';
-import { RELEASE, downloadUrl, notesUrl } from './config.js';
+import { RELEASE, INSTALL, downloadUrl, notesUrl } from './config.js';
 import { createAppDemo } from './appdemo.js';
 
 const qs = new URLSearchParams(location.search);
@@ -58,6 +58,16 @@ function setupDownload() {
   $$('[data-dl]').forEach((a) => { a.href = downloadUrl(a.dataset.dl); });
   $('#foot-notes').href = notesUrl();
   $$('[data-file]').forEach((c) => { c.textContent = RELEASE.files[c.dataset.file]; });
+  // the terminal install: the command, and a button that copies it
+  $$('[data-cmd]').forEach((c) => { c.textContent = INSTALL[c.dataset.cmd]; });
+  $$('.cli .copy').forEach((b) => b.addEventListener('click', async () => {
+    const cmd = $('[data-cmd]', b.parentNode).textContent;
+    try { await navigator.clipboard.writeText(cmd); } catch { return; }
+    b.textContent = t('dl.copied');
+    b.classList.add('done');
+    clearTimeout(b.resetTimer);
+    b.resetTimer = setTimeout(() => { b.textContent = t('dl.copy'); b.classList.toggle('done', false); }, 1600);
+  }));
   if (!os) return;
   const li = $(`.os-list li[data-os="${os}"]`);
   li.classList.add('me'); $('.yours', li).hidden = false; $('details', li).open = true;
