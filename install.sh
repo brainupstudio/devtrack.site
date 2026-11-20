@@ -11,7 +11,8 @@
 # - Linux: the program in ~/.local/bin, the icon and the menu entry in ~/.local/share.
 # Your data is never touched: it lives in its own folder and stays there.
 #
-# Everything is inside main(), so a download cut short runs nothing.
+# Everything is inside main(), so a download cut short runs nothing. Plain ASCII only: with
+# the C locale, sh would read a multibyte character after $name as part of the name.
 
 main() {
     set -eu
@@ -56,7 +57,7 @@ main() {
     }
     trap cleanup EXIT INT TERM
 
-    say "Downloading DevTrack $version…"
+    say "Downloading DevTrack ${version}..."
     curl -fL --progress-bar -o "$tmp/$file" "$base/$file" || fail "the download did not finish."
     curl -fsSL -o "$tmp/SHA256SUMS.txt" "$base/SHA256SUMS.txt" || fail "the checksums of version $version are not published, so the download cannot be checked."
 
@@ -82,11 +83,11 @@ main() {
         # the copy being replaced must not be running
         running() { pgrep -f "$app/Contents/MacOS/devtrack" >/dev/null 2>&1; }
         if running; then
-            say "Closing DevTrack to replace it…"
+            say "Closing DevTrack to replace it..."
             osascript -e 'tell application id "studio.brainup.devtrack" to quit' >/dev/null 2>&1 || true
             i=0
             while running && [ $i -lt 20 ]; do sleep 0.5; i=$((i + 1)); done
-            if running; then fail "DevTrack is still open: quit it (menu bar icon › Quit) and run this again."; fi
+            if running; then fail "DevTrack is still open: quit it (menu bar icon > Quit) and run this again."; fi
         fi
         mkdir -p "$dir"
         sudo=""
