@@ -2,11 +2,11 @@
 // Packages are published as a release of the public site repository.
 export const RELEASE = {
   repo: 'brainupstudio/devtrack.site',
-  version: '0.1.5',
+  version: '0.1.6',
   files: {
-    mac: 'DevTrack-0.1.5-macOS.dmg',
-    win: 'DevTrack-0.1.5-Windows-x64.zip',
-    linux: 'DevTrack-0.1.5-Linux-x64.tar.gz',
+    mac: 'DevTrack-0.1.6-macOS.dmg',
+    win: 'DevTrack-0.1.6-Windows-x64.zip',
+    linux: 'DevTrack-0.1.6-Linux-x64.tar.gz',
   },
 };
 
