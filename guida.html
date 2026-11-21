@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guida di DevTrack</title>
+<meta name="description" content="Come si usa DevTrack: il timer, i progetti, le attività da Azure DevOps, la rendicontazione per ogni piattaforma, l'importazione e l'esportazione dei dati.">
+<meta name="theme-color" content="#0b0b0c">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Guida di DevTrack">
+<meta property="og:description" content="Come si usa DevTrack, dal primo avvio alla rendicontazione.">
+<meta property="og:url" content="https://brainupstudio.github.io/devtrack.site/guida.html">
+<meta property="og:image" content="https://brainupstudio.github.io/devtrack.site/assets/img/og.jpg">
+<link rel="icon" type="image/png" href="assets/img/app-icon-64.png">
+<link rel="apple-touch-icon" href="assets/img/app-icon-180.png">
+<link rel="preload" href="assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/FiraCode-Bold-wordmark.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/guide.css">
+<script type="module" src="js/guide.js"></script>
+</head>
+<body class="guide">
+<a class="skip" href="#contenuto"><span lang="it">Vai al contenuto</span><span lang="en">Skip to content</span></a>
+
+<header class="nav">
+  <a class="brand" href="./" aria-label="DevTrack">
+    <img src="assets/img/mark.png" width="25" height="26" alt="">
+    <span>DevTrack</span>
+  </a>
+  <div class="nav-right">
+    <div class="lang" role="group" aria-label="Lingua / Language">
+      <button type="button" data-lang="it" aria-pressed="true">IT</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn small" href="./#download"><span lang="it">Scarica</span><span lang="en">Download</span></a>
+  </div>
+</header>
+
+<main id="contenuto" class="g-main">
+  <div class="g-head">
+    <h1><span lang="it">Come si usa DevTrack.</span><span lang="en">How to use DevTrack.</span></h1>
+    <p class="g-lede" lang="it">Tracci il tempo una volta sola, mentre lavori. DevTrack lo tiene al secondo e, quando è il momento di riportare le ore, ti prepara il valore giusto per ogni sistema in cui devi inserirle. Questa guida segue l'app pagina per pagina.</p>
+    <p class="g-lede" lang="en">You track your time once, while you work. DevTrack keeps it to the second and, when it's time to report your hours, prepares the right value for every system you have to enter them into. This guide follows the app page by page.</p>
+  </div>
+
+  <div class="g-grid">
+    <nav class="g-toc" aria-label="Indice / Contents">
+      <p class="g-toc-h"><span lang="it">In questa guida</span><span lang="en">In this guide</span></p>
+      <ol>
+        <li><a href="#inizio"><span lang="it">Primi passi</span><span lang="en">Getting started</span></a></li>
+        <li><a href="#oggi"><span lang="it">Oggi e il timer</span><span lang="en">Today and the timer</span></a></li>
+        <li><a href="#lavoro"><span lang="it">Lavoro</span><span lang="en">Work</span></a></li>
+        <li><a href="#devops">Azure DevOps</a></li>
+        <li><a href="#rendicontazione"><span lang="it">Rendicontazione</span><span lang="en">Report Time</span></a></li>
+        <li><a href="#statistiche"><span lang="it">Statistiche</span><span lang="en">Statistics</span></a></li>
+        <li><a href="#importare"><span lang="it">Importare ed esportare</span><span lang="en">Import and export</span></a></li>
+        <li><a href="#dispositivi"><span lang="it">Su più dispositivi</span><span lang="en">On more than one device</span></a></li>
+        <li><a href="#impostazioni"><span lang="it">Impostazioni</span><span lang="en">Settings</span></a></li>
+        <li><a href="#tastiera"><span lang="it">Scorciatoie</span><span lang="en">Shortcuts</span></a></li>
+        <li><a href="#dati"><span lang="it">I tuoi dati</span><span lang="en">Your data</span></a></li>
+      </ol>
+    </nav>
+
+    <article class="g-body">
+
+      <!-- Primi passi -->
+      <section id="inizio">
+        <h2><span lang="it">Primi passi</span><span lang="en">Getting started</span></h2>
+        <div lang="it">
+          <p>DevTrack è un'app per macOS, Windows e Linux. La scarichi dalla <a href="./#download">pagina di download</a>, dove trovi anche il comando per installarla dal Terminale senza gli avvisi del sistema.</p>
+          <p>La finestra ha quattro pagine nella barra laterale: <b>Oggi</b>, dove tracci il tempo; <b>Lavoro</b>, con progetti, clienti e attività; <b>Rendicontazione</b>, con i valori da inserire nei tuoi sistemi; <b>Statistiche</b>. In fondo ci sono le <b>Impostazioni</b>.</p>
+          <p>Se vuoi prima guardarti intorno, in Impostazioni › Dati c'è <b>Aggiungi dati di esempio</b>: progetti, attività, sessioni e due destinazioni già pronte.</p>
+        </div>
+        <div lang="en">
+          <p>DevTrack is an app for macOS, Windows and Linux. Get it from the <a href="./#download">download page</a>, which also has the command that installs it from a terminal without the system's warnings.</p>
+          <p>The window has four pages in the sidebar: <b>Today</b>, where you track time; <b>Work</b>, with projects, clients and tasks; <b>Report Time</b>, with the values to enter into your systems; <b>Statistics</b>. <b>Settings</b> sits at the bottom.</p>
+          <p>To look around first, Settings › Data has <b>Add sample data</b>: projects, tasks, sessions and two destinations, ready to use.</p>
+        </div>
+      </section>
+
+      <!-- Oggi -->
+      <section id="oggi">
+        <h2><span lang="it">Oggi e il timer</span><span lang="en">Today and the timer</span></h2>
+        <div lang="it">
+          <h3>Avviare una sessione</h3>
+          <p>In alto c'è il timer. Nel campo scrivi su cosa stai lavorando: DevTrack ti propone le attività e i progetti che usi di più. Se scegli un'attività, progetto e cliente si compilano da soli; altrimenti li scegli dalle due parole sottolineate sotto il campo. Puoi anche partire dal cliente: i progetti si restringono ai suoi.</p>
+          <p><b>Avvia</b> fa partire il tempo. Mentre corre hai <b>Pausa</b>, che ferma il conteggio e lo riprende come una nuova parte della stessa sessione, e <b>Ferma</b>, che salva la sessione con gli orari reali. Una sessione si può avviare anche senza progetto: la completi dopo.</p>
+          <h3>La giornata</h3>
+          <p>Sotto il timer scegli il periodo (giorno, settimana o mese) e la vista: <b>Elenco</b>, una riga per sessione; <b>Calendario</b>, le sessioni come blocchi da spostare o allungare; <b>Timesheet</b>, una griglia per attività e giorno. Accanto al totale registrato, un riquadro ti dice se tutte le sessioni sono complete o se a qualcuna manca il progetto.</p>
+          <p>Per una sessione dimenticata c'è <b>+ Aggiungi sessione</b>. Ogni riga mostra le conversioni della sessione per ogni piattaforma, si riprende con il pulsante di avvio e si modifica dal menu «…».</p>
+          <h3>La finestra compatta</h3>
+          <p>Il pulsante in alto a destra riduce DevTrack a una piccola finestra con il solo timer, che può restare sopra le altre app mentre lavori.</p>
+        </div>
+        <div lang="en">
+          <h3>Starting a session</h3>
+          <p>The timer sits at the top. Type what you're working on in its field: DevTrack suggests the tasks and projects you use most. Pick a task and its project and client fill themselves in; otherwise choose them from the two underlined words under the field. You can also start from the client: the projects narrow to theirs.</p>
+          <p><b>Start</b> sets the clock running. While it runs you have <b>Pause</b>, which stops counting and continues as a new piece of the same session, and <b>Stop</b>, which saves the session with its real times. A session can start without a project: you complete it later.</p>
+          <h3>Your day</h3>
+          <p>Under the timer choose the period (day, week or month) and the view: <b>List</b>, one row per session; <b>Calendar</b>, sessions as blocks you can move or stretch; <b>Timesheet</b>, a grid by task and day. Next to the recorded total, a box tells you whether every session is complete or some still lack a project.</p>
+          <p>For a session you forgot, use <b>+ Add session</b>. Every row shows the session's conversions for each platform, is resumed with its play button and edited from its “…” menu.</p>
+          <h3>The compact window</h3>
+          <p>The button at the top right shrinks DevTrack to a small window with just the timer, which can stay above your other apps while you work.</p>
+        </div>
+      </section>
+
+      <!-- Lavoro -->
+      <section id="lavoro">
+        <h2><span lang="it">Lavoro</span><span lang="en">Work</span></h2>
+        <div lang="it">
+          <p>Qui organizzi su cosa lavori, in tre schede: <b>Progetti</b>, <b>Attività</b> e <b>Clienti</b>. Ogni progetto ha un colore, un cliente facoltativo e le sue attività; il colore lo ritrovi nel timer, nelle sessioni e nelle barre della giornata.</p>
+          <p>Le attività possono essere tue, create in DevTrack, oppure importate da Azure DevOps. Nell'elenco le filtri per cliente, progetto (anche «senza»), origine e stato.</p>
+          <p>Aprendo un progetto vedi il tempo registrato, le sessioni, le attività aperte e le <b>ore previste</b>: la somma delle stime delle sue attività, con una barra che mostra a che punto sei.</p>
+        </div>
+        <div lang="en">
+          <p>This is where you organise what you work on, in three tabs: <b>Projects</b>, <b>Tasks</b> and <b>Clients</b>. Every project has a colour, an optional client and its tasks; you see its colour in the timer, in the sessions and in the day's bars.</p>
+          <p>Tasks can be your own, created in DevTrack, or imported from Azure DevOps. Filter the list by client, project (including “none”), source and status.</p>
+          <p>Open a project to see its tracked time, sessions, open tasks and <b>planned hours</b>: the sum of its tasks' estimates, with a bar that shows where you stand.</p>
+        </div>
+      </section>
+
+      <!-- Azure DevOps -->
+      <section id="devops">
+        <h2>Azure DevOps</h2>
+        <div lang="it">
+          <p>Se il tuo lavoro è su Azure DevOps, puoi portare in DevTrack i work item su cui lavori, con numero, titolo e ore stimate.</p>
+          <ol class="g-steps">
+            <li>In Impostazioni › Connessioni inserisci il nome dell'organizzazione e un <b>personal access token</b>. DevTrack lo salva nel portachiavi del sistema.</li>
+            <li>In Lavoro apri un progetto e premi <b>+ Aggiungi attività</b>, poi <b>Da Azure DevOps</b>.</li>
+            <li>Scegli tra <b>Assegnate a me</b> e <b>Cerca</b>, spunta i work item e premi <b>Importa</b>.</li>
+          </ol>
+          <p class="g-note">DevTrack li legge soltanto: non scrive ore e non cambia nulla su Azure DevOps.</p>
+        </div>
+        <div lang="en">
+          <p>If your work lives in Azure DevOps, you can bring the work items you work on into DevTrack, with their number, title and estimated hours.</p>
+          <ol class="g-steps">
+            <li>In Settings › Connections enter your organization's name and a <b>personal access token</b>. DevTrack keeps it in the system keychain.</li>
+            <li>In Work open a project and press <b>+ Add task</b>, then <b>From Azure DevOps</b>.</li>
+            <li>Choose <b>Assigned to me</b> or <b>Search</b>, tick the work items and press <b>Import</b>.</li>
+          </ol>
+          <p class="g-note">DevTrack only reads them: it never writes hours or changes anything in Azure DevOps.</p>
+        </div>
+      </section>
+
+      <!-- Rendicontazione -->
+      <section id="rendicontazione">
+        <h2><span lang="it">Rendicontazione</span><span lang="en">Report Time</span></h2>
+        <div lang="it">
+          <p>Ogni sistema in cui riporti le ore le vuole a modo suo: chi in ore decimali, chi in ore e minuti, ognuno con il suo arrotondamento. In DevTrack ognuno di questi sistemi è una <b>destinazione</b>, e la pagina Rendicontazione ha una scheda per ciascuna.</p>
+        </div>
+        <div lang="en">
+          <p>Every system you report hours to wants them its own way: decimal hours for one, hours and minutes for another, each with its own rounding. In DevTrack each of these systems is a <b>destination</b>, and the Report Time page has a tab for each one.</p>
+        </div>
+        <figure class="g-example">
+          <figcaption><span lang="it">Un tempo, tre destinazioni</span><span lang="en">One time, three destinations</span></figcaption>
+          <div class="g-ex-from"><b>0:44</b><span lang="it">registrati</span><span lang="en">tracked</span></div>
+          <ul>
+            <li><span>Azure DevOps</span><b>0.75</b><small lang="it">ore decimali</small><small lang="en">decimal hours</small></li>
+            <li><span lang="it">Timesheet aziendale</span><span lang="en">Company timesheet</span><b>0.45</b><small lang="it">ore.minuti</small><small lang="en">hours.minutes</small></li>
+            <li><span lang="it">Foglio ore</span><span lang="en">Hours sheet</span><b>45</b><small lang="it">minuti</small><small lang="en">minutes</small></li>
+          </ul>
+          <p class="g-ex-note" lang="it">Arrotondamento al quarto d'ora più vicino: 0:44 diventa 0:45, scritto come vuole ogni sistema.</p>
+          <p class="g-ex-note" lang="en">Rounded to the nearest quarter hour: 0:44 becomes 0:45, written the way each system wants it.</p>
+        </figure>
+        <div lang="it">
+          <h3>Creare una destinazione</h3>
+          <p>Con <b>+ Aggiungi destinazione</b> scegli il formato (ore decimali, ore e minuti o minuti), l'arrotondamento e i <b>codici</b> da usare per ogni progetto, come la commessa. Se un'attività va registrata con un codice diverso dal suo progetto, aggiungi un'eccezione per quell'attività. I formati si gestiscono anche in Impostazioni › Piattaforme.</p>
+          <h3>Riportare le ore</h3>
+          <p>Scegli il periodo e la destinazione. In alto vedi il tempo registrato, il totale da inserire con la differenza dovuta all'arrotondamento, e quanti valori hai già inserito. Sotto c'è una riga per codice: copi il valore, lo incolli nel tuo sistema e premi <b>Conferma inserimento</b>. Aprendo una riga trovi le sessioni che la compongono, il calcolo e una <b>riga per fogli di calcolo</b> da incollare in Excel, Numbers o Fogli Google.</p>
+          <p>Il tempo registrato non cambia mai: l'arrotondamento vale solo per il valore da inserire. Quando un periodo è chiuso, in Impostazioni › Dati puoi bloccare le sessioni fino a una data, così nessuna modifica cambia ore già rendicontate.</p>
+        </div>
+        <div lang="en">
+          <h3>Creating a destination</h3>
+          <p>With <b>+ Add destination</b> choose the format (decimal hours, hours and minutes, or minutes), the rounding and the <b>codes</b> to use for each project, such as a job code. If a task must be reported under a different code from its project, add an exception for that task. Formats can also be managed in Settings › Platforms.</p>
+          <h3>Reporting your hours</h3>
+          <p>Choose the period and the destination. At the top you see the time tracked, the total to enter with the difference due to rounding, and how many values you have already entered. Below is one row per code: copy the value, paste it into your system and press <b>Confirm entry</b>. Open a row to see the sessions in it, the calculation and a <b>spreadsheet line</b> to paste into Excel, Numbers or Google Sheets.</p>
+          <p>The tracked time never changes: rounding applies only to the value you enter. Once a period is closed, Settings › Data lets you lock sessions up to a date, so no edit can change hours you have already reported.</p>
+        </div>
+      </section>
+
+      <!-- Statistiche -->
+      <section id="statistiche">
+        <h2><span lang="it">Statistiche</span><span lang="en">Statistics</span></h2>
+        <p lang="it">Il tempo registrato per giorno, per progetto e per attività, nel periodo che scegli. Utile per capire dove vanno le ore della settimana o del mese.</p>
+        <p lang="en">Your tracked time by day, by project and by task, over the period you choose. Useful to see where the hours of the week or the month went.</p>
+      </section>
+
+      <!-- Importare ed esportare -->
+      <section id="importare">
+        <h2><span lang="it">Importare ed esportare</span><span lang="en">Import and export</span></h2>
+        <div lang="it">
+          <h3>Portare dentro il lavoro che hai già</h3>
+          <p>Se finora tracciavi il tempo con un altro servizio, in Impostazioni › Dati puoi importarne le sessioni collegandoti con il tuo token personale: scegli gli ultimi 7, 30 o 90 giorni, vedi un'anteprima e importi senza creare doppioni. Il token non viene salvato e nel servizio di origine non cambia niente.</p>
+          <p>Le attività di Azure DevOps arrivano invece da Lavoro, come descritto <a href="#devops">sopra</a>.</p>
+          <h3>Portare fuori le sessioni</h3>
+          <p>Le sessioni escono in <b>CSV</b>, il formato che leggono fogli di calcolo e quasi tutti gli strumenti esterni. In Impostazioni › Dati puoi copiarle tutte negli appunti oppure salvare un periodo (questa settimana, la scorsa, questo mese, il mese scorso) in un file, con una colonna per ogni conversione.</p>
+        </div>
+        <div lang="en">
+          <h3>Bringing in the work you already have</h3>
+          <p>If you used to track time with another service, Settings › Data lets you import its sessions by connecting with your personal token: choose the last 7, 30 or 90 days, check a preview and import without duplicates. The token isn't saved and nothing changes in the source service.</p>
+          <p>Azure DevOps tasks come in from Work instead, as described <a href="#devops">above</a>.</p>
+          <h3>Taking your sessions out</h3>
+          <p>Sessions go out as <b>CSV</b>, the format spreadsheets and most external tools read. In Settings › Data you can copy them all to the clipboard or save a period (this week, last week, this month, last month) to a file, with a column for each conversion.</p>
+        </div>
+      </section>
+
+      <!-- Dispositivi -->
+      <section id="dispositivi">
+        <h2><span lang="it">Su più dispositivi</span><span lang="en">On more than one device</span></h2>
+        <div lang="it">
+          <p>DevTrack non ha un server suo: per usarlo su due computer basta una cartella che entrambi vedono, per esempio in iCloud Drive o in OneDrive. In Impostazioni › Sincronizzazione scegli la cartella e dai un nome al dispositivo. DevTrack ci scrive un file per questo dispositivo e legge quelli degli altri; il resto della cartella non cambia.</p>
+        </div>
+        <div lang="en">
+          <p>DevTrack has no server of its own: to use it on two computers you just need a folder both can see, for example in iCloud Drive or OneDrive. In Settings › Sync choose the folder and name the device. DevTrack writes one file for this device there and reads the other devices' files; nothing else in the folder changes.</p>
+        </div>
+      </section>
+
+      <!-- Impostazioni -->
+      <section id="impostazioni">
+        <h2><span lang="it">Impostazioni</span><span lang="en">Settings</span></h2>
+        <dl class="g-defs" lang="it">
+          <div><dt>Generale</dt><dd>Lingua (italiano o inglese), tema chiaro o scuro, finestra sempre in primo piano, aggiornamenti. Su macOS: cosa mostra l'icona nella barra dei menu e l'apertura all'avvio del Mac.</dd></div>
+          <div><dt>Tempo</dt><dd>Formato delle durate, orologio a 24 ore, inizio della settimana, orari di lavoro, progetto predefinito per le sessioni avviate senza, passo del calendario. Qui accendi la domanda sul tempo di inattività (al rientro tieni o scarti il tempo passato lontano) e il promemoria per tracciare, solo nei giorni e negli orari di lavoro.</dd></div>
+          <div><dt>Piattaforme</dt><dd>I formati e gli arrotondamenti delle piattaforme in cui riporti le ore.</dd></div>
+          <div><dt>Connessioni</dt><dd>Il collegamento ad Azure DevOps, in sola lettura.</dd></div>
+          <div><dt>Sincronizzazione</dt><dd>La cartella condivisa e il nome di questo dispositivo.</dd></div>
+          <div><dt>Dati</dt><dd>Dove sono i tuoi dati, esportazione in CSV, importazione da un altro servizio, dati di esempio, blocco delle sessioni già rendicontate.</dd></div>
+        </dl>
+        <dl class="g-defs" lang="en">
+          <div><dt>General</dt><dd>Language (Italian or English), light or dark theme, keeping the window above others, updates. On macOS: what the menu bar icon shows and opening when the Mac starts.</dd></div>
+          <div><dt>Time &amp; days</dt><dd>Duration format, 24-hour clock, first day of the week, working hours, a default project for sessions started without one, the calendar step. Here you turn on the idle-time question (when you come back, keep or discard the time away) and the reminder to track, only on working days and hours.</dd></div>
+          <div><dt>Platforms</dt><dd>The formats and rounding of the platforms you report hours to.</dd></div>
+          <div><dt>Connections</dt><dd>The read-only connection to Azure DevOps.</dd></div>
+          <div><dt>Sync</dt><dd>The shared folder and this device's name.</dd></div>
+          <div><dt>Data</dt><dd>Where your data lives, CSV export, import from another service, sample data, locking sessions already reported.</dd></div>
+        </dl>
+        <div lang="it">
+          <h3>Su macOS</h3>
+          <p>L'icona nella barra dei menu mostra il tempo della sessione in corso. Chiudere la finestra non chiude DevTrack: il timer continua, e un clic sull'icona riapre la finestra. Per uscire usa ⌘Q o il menu dell'icona. Quando esce una versione nuova, DevTrack la scarica e la installa alla chiusura.</p>
+        </div>
+        <div lang="en">
+          <h3>On macOS</h3>
+          <p>The menu bar icon shows the running session's time. Closing the window doesn't quit DevTrack: the timer keeps going, and a click on the icon brings the window back. Quit with ⌘Q or from the icon's menu. When a new version comes out, DevTrack downloads it and installs it when you quit.</p>
+        </div>
+      </section>
+
+      <!-- Tastiera -->
+      <section id="tastiera">
+        <h2><span lang="it">Scorciatoie</span><span lang="en">Shortcuts</span></h2>
+        <p lang="it">Su Windows e Linux usa <kbd>Ctrl</kbd> al posto di <kbd>⌘</kbd>.</p>
+        <p lang="en">On Windows and Linux use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>.</p>
+        <table class="g-keys">
+          <tbody>
+            <tr><td><kbd>⌘</kbd><kbd>1</kbd> … <kbd>⌘</kbd><kbd>4</kbd></td><td><span lang="it">Oggi, Lavoro, Rendicontazione, Statistiche</span><span lang="en">Today, Work, Report Time, Statistics</span></td></tr>
+            <tr><td><kbd>⌘</kbd><kbd lang="it">Invio</kbd><kbd lang="en">Enter</kbd></td><td><span lang="it">Avvia o ferma il timer</span><span lang="en">Start or stop the timer</span></td></tr>
+            <tr><td><kbd>⌘</kbd><kbd>P</kbd></td><td><span lang="it">Pausa o riprendi</span><span lang="en">Pause or resume</span></td></tr>
+            <tr><td><kbd>⌘</kbd><kbd lang="it">Maiusc</kbd><kbd lang="en">Shift</kbd><kbd>M</kbd></td><td><span lang="it">Finestra compatta</span><span lang="en">Compact window</span></td></tr>
+            <tr><td><kbd>↑</kbd> <kbd>↓</kbd></td><td><span lang="it">Negli orari di una sessione: un minuto in più o in meno, dieci con</span><span lang="en">In a session's times: one minute more or less, ten with</span> <kbd lang="it">Maiusc</kbd><kbd lang="en">Shift</kbd></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Dati -->
+      <section id="dati">
+        <h2><span lang="it">I tuoi dati</span><span lang="en">Your data</span></h2>
+        <div lang="it">
+          <p>Sessioni, progetti e impostazioni restano sul tuo computer, o nella cartella condivisa se la scegli. Le credenziali di Azure DevOps stanno nel portachiavi del sistema. Il controllo degli aggiornamenti chiede solo il numero dell'ultima versione, senza mandare nulla su di te o sul tuo lavoro, e si può spegnere in Impostazioni › Generale.</p>
+        </div>
+        <div lang="en">
+          <p>Sessions, projects and settings stay on your computer, or in the shared folder if you choose one. Azure DevOps credentials live in the system keychain. The update check only asks for the latest version number, sends nothing about you or your work, and can be turned off in Settings › General.</p>
+        </div>
+      </section>
+
+      <p class="g-end"><a class="btn primary" href="./#download"><span lang="it">Scarica DevTrack</span><span lang="en">Download DevTrack</span></a></p>
+    </article>
+  </div>
+
+  <footer class="foot">
+    <span class="brand"><img src="assets/img/app-icon-64.png" width="20" height="20" alt=""> DevTrack</span>
+    <a href="./"><span lang="it">Torna al sito</span><span lang="en">Back to the site</span></a>
+    <a href="#contenuto"><span lang="it">Torna su</span><span lang="en">Back to top</span></a>
+  </footer>
+</main>
+</body>
+</html>

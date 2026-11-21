@@ -23,6 +23,33 @@
         ],
         "createdAt": "2026-11-20T23:14:45.949Z",
         "reason": "agent decided: every hit is an aw-* control of the replica DevTrack window (36px controls with centred text, table rows); measures copied from the real app, the static check cannot see the centring"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "guida.html"
+        ],
+        "createdAt": "2026-11-21T11:59:54.474Z",
+        "reason": "agent decided: hits are column dividers in the 0:44 example (16px inset, first column has no border) and row separators in the settings list (14px below the rule); the static check misses the rendered padding"
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "guida.html"
+        ],
+        "createdAt": "2026-11-21T11:59:54.489Z",
+        "reason": "agent decided: the rule lives in the shared style.css; the guide has no dot element"
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-21T11:59:54.503Z",
+        "reason": "agent decided: the dot sits beside a timer that really counts each second (Sessione in corso), a genuinely live value"
       }
     ]
   }

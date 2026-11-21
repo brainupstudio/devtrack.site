@@ -85,6 +85,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .nav .brand img { width: auto; height: 26px; border-radius: 0; transform: translateY(1.5px); }
 .brand img { border-radius: 7px; display: block; }
 .nav-right { display: flex; align-items: center; gap: 14px; }
+.nav-guide { font-size: 14px; font-weight: 550; color: #c4c4c6; padding: 8px 4px; transition: color .2s; }
+.nav-guide:hover { color: var(--ink); }
+@media (min-width: 861px) and (max-width: 1100px) { .nav-guide { display: none; } }   /* no room beside the centre menu; the footer links it */
 .lang { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: rgba(11,11,12,.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .lang button { min-width: 40px; height: 32px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--mute); transition: color .2s, background .2s; }
 .lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
@@ -296,6 +299,7 @@ details p { font-size: 15px; max-width: 60ch; padding: 2px 0 8px 18px; color: #c
 }
 /* phones: brand, language and download share one row without touching */
 @media (max-width: 480px) {
+  .nav-guide { display: none; }
   .nav { padding-top: 12px; padding-bottom: 12px; column-gap: 10px; }
   .brand { font-size: 18px; gap: 6px; transform: none; }
   .nav .brand img { height: 21px; }
