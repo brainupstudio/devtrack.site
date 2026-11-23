@@ -52,6 +52,7 @@
         <li><a href="#lavoro"><span lang="it">Lavoro</span><span lang="en">Work</span></a></li>
         <li><a href="#devops">Azure DevOps</a></li>
         <li><a href="#rendicontazione"><span lang="it">Rendicontazione</span><span lang="en">Report Time</span></a></li>
+        <li><a href="#assistenti"><span lang="it">Assistenti AI</span><span lang="en">AI assistants</span></a></li>
         <li><a href="#statistiche"><span lang="it">Statistiche</span><span lang="en">Statistics</span></a></li>
         <li><a href="#importare"><span lang="it">Importare ed esportare</span><span lang="en">Import and export</span></a></li>
         <li><a href="#dispositivi"><span lang="it">Su più dispositivi</span><span lang="en">On more than one device</span></a></li>
@@ -177,6 +178,31 @@
         </div>
       </section>
 
+      <!-- Assistenti AI -->
+      <section id="assistenti">
+        <h2><span lang="it">Assistenti AI</span><span lang="en">AI assistants</span></h2>
+        <div lang="it">
+          <p>Un assistente come Claude può leggere il tempo che registri e trasformarlo in risposte e report: «Quante ore ho fatto la settimana scorsa su Northwind, per progetto?», «Prepara il report settimanale per il PM di Portale clienti». Le cifre le calcola DevTrack dalle tue sessioni, con le stesse regole che vedi nell'app; l'assistente scrive il testo intorno.</p>
+          <ol class="g-steps">
+            <li>In Impostazioni › <b>Assistenti AI</b> leggi cosa può vedere un assistente, poi attiva <b>Permetti agli assistenti AI di leggere DevTrack</b>. Vale solo su quel dispositivo; sotto, una riga verifica da sola che tutto funzioni.</li>
+            <li>Collega il tuo assistente. Per <b>Claude Desktop</b> premi <b>Aggiungi a Claude Desktop</b>: DevTrack aggiunge la sua voce alla configurazione, dopo averne tenuto una copia, e poi riavvii Claude Desktop. Per <b>Claude Code</b> c'è un comando da eseguire una volta nel Terminale; per gli altri (Codex CLI, Cursor…) il comando e i suoi argomenti.</li>
+            <li>Chiedi. In Claude Desktop il menu <b>+</b> offre anche tre report pronti: settimanale per il PM, stato di un progetto, riepilogo per cliente.</li>
+          </ol>
+          <p>Con <b>Leggi anche i work item di Azure DevOps</b>, l'assistente vede anche i work item assegnati a te e, quando serve, ne legge uno dal vivo: stato, Completed e Remaining Work, ultimi cambiamenti. Nei report compare allora l'avanzamento rispetto alle stime, con le ore registrate in DevTrack accanto a quelle dichiarate su DevOps.</p>
+          <p class="g-note">Sola lettura: l'assistente non può cambiare nulla, né in DevTrack né su Azure DevOps, e non vede mai i token. Quello che legge va però al servizio dell'assistente che usi (Anthropic per Claude, OpenAI per ChatGPT e Codex). Per un report da mandare fuori dal team chiedilo anonimizzato: i clienti diventano «Cliente A», «Cliente B» e le note restano fuori.</p>
+        </div>
+        <div lang="en">
+          <p>An assistant such as Claude can read the time you track and turn it into answers and reports: “How many hours did I spend on Northwind last week, by project?”, “Prepare the weekly report for the Client portal PM”. DevTrack computes the figures from your sessions, with the same rules you see in the app; the assistant writes the text around them.</p>
+          <ol class="g-steps">
+            <li>In Settings › <b>AI assistants</b> read what an assistant can see, then turn on <b>Let AI assistants read DevTrack</b>. It applies to that device only; a line below checks by itself that everything works.</li>
+            <li>Connect your assistant. For <b>Claude Desktop</b> press <b>Add to Claude Desktop</b>: DevTrack adds its entry to the configuration, after keeping a copy of it, and you restart Claude Desktop. For <b>Claude Code</b> there is a command to run once in a terminal; for the others (Codex CLI, Cursor…) the command and its arguments.</li>
+            <li>Ask. In Claude Desktop the <b>+</b> menu also offers three ready-made reports: weekly for your PM, project status, client summary.</li>
+          </ol>
+          <p>With <b>Also read Azure DevOps work items</b>, the assistant also sees the work items assigned to you and, when needed, reads one live: state, Completed and Remaining Work, latest changes. Reports then show progress against the estimates, with the hours tracked in DevTrack next to those entered in DevOps.</p>
+          <p class="g-note">Read only: the assistant can't change anything, in DevTrack or in Azure DevOps, and never sees your tokens. What it reads does go to the service of the assistant you use (Anthropic for Claude, OpenAI for ChatGPT and Codex). For a report going outside the team, ask for it anonymized: clients become “Client A”, “Client B” and notes are left out.</p>
+        </div>
+      </section>
+
       <!-- Statistiche -->
       <section id="statistiche">
         <h2><span lang="it">Statistiche</span><span lang="en">Statistics</span></h2>
@@ -263,10 +289,10 @@
       <section id="dati">
         <h2><span lang="it">I tuoi dati</span><span lang="en">Your data</span></h2>
         <div lang="it">
-          <p>Sessioni, progetti e impostazioni restano sul tuo computer, o nella cartella condivisa se la scegli. Le credenziali di Azure DevOps stanno nel portachiavi del sistema. Il controllo degli aggiornamenti chiede solo il numero dell'ultima versione, senza mandare nulla su di te o sul tuo lavoro, e si può spegnere in Impostazioni › Generale.</p>
+          <p>Sessioni, progetti e impostazioni restano sul tuo computer, o nella cartella condivisa se la scegli. Le credenziali di Azure DevOps stanno nel portachiavi del sistema. Un assistente AI legge i tuoi dati solo se lo attivi in Impostazioni › Assistenti AI. Il controllo degli aggiornamenti chiede solo il numero dell'ultima versione, senza mandare nulla su di te o sul tuo lavoro, e si può spegnere in Impostazioni › Generale.</p>
         </div>
         <div lang="en">
-          <p>Sessions, projects and settings stay on your computer, or in the shared folder if you choose one. Azure DevOps credentials live in the system keychain. The update check only asks for the latest version number, sends nothing about you or your work, and can be turned off in Settings › General.</p>
+          <p>Sessions, projects and settings stay on your computer, or in the shared folder if you choose one. Azure DevOps credentials live in the system keychain. An AI assistant reads your data only if you turn it on in Settings › AI assistants. The update check only asks for the latest version number, sends nothing about you or your work, and can be turned off in Settings › General.</p>
         </div>
       </section>
 

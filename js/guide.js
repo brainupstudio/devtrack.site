@@ -2,8 +2,8 @@
 const root = document.documentElement;
 const qs = new URLSearchParams(location.search);
 const META = {
-  it: { title: 'Guida di DevTrack', desc: 'Come si usa DevTrack: il timer, i progetti, le attività da Azure DevOps, la rendicontazione per ogni piattaforma, l\'importazione e l\'esportazione dei dati.' },
-  en: { title: 'DevTrack guide', desc: 'How to use DevTrack: the timer, projects, Azure DevOps tasks, reporting for each platform, importing and exporting your data.' },
+  it: { title: 'Guida di DevTrack', desc: 'Come si usa DevTrack: il timer, i progetti, le attività da Azure DevOps, la rendicontazione per ogni piattaforma, gli assistenti AI, l\'importazione e l\'esportazione dei dati.' },
+  en: { title: 'DevTrack guide', desc: 'How to use DevTrack: the timer, projects, Azure DevOps tasks, reporting for each platform, AI assistants, importing and exporting your data.' },
 };
 function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch { return null; } }
 function pick() {

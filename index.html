@@ -111,12 +111,13 @@
     <div class="pin">
       <div class="copy">
         <h2 data-i18n="app.h">Guardalo lavorare.</h2>
-        <p class="app-sub" data-i18n="app.sub">Quattro gesti, dall'inizio della giornata alle attività che ti aspettano.</p>
+        <p class="app-sub" data-i18n="app.sub">Cinque gesti, dalla prima attività del giorno al report per il PM.</p>
         <ul class="phases">
           <li data-phase="1"><strong data-i18n="app.p1h">Scrivi cosa fai.</strong><span data-i18n="app.p1"></span></li>
           <li data-phase="2"><strong data-i18n="app.p2h">Avvia e ferma.</strong><span data-i18n="app.p2"></span></li>
           <li data-phase="3"><strong data-i18n="app.p3h">Prendi le attività da Azure DevOps.</strong><span data-i18n="app.p3"></span></li>
           <li data-phase="4"><strong data-i18n="app.p4h">Rendiconta.</strong><span data-i18n="app.p4"></span></li>
+          <li data-phase="5"><strong data-i18n="app.p5h">Chiedi un report.</strong><span data-i18n="app.p5"></span></li>
         </ul>
       </div>
       <div class="aw-stage">
@@ -131,7 +132,7 @@
                 <li data-nav="report" data-cur="navrep"><svg viewBox="0 0 16 16"><path d="M5.5 4h8.5M5.5 8h8.5M5.5 12h8.5M2 4h.6M2 8h.6M2 12h.6"/></svg><span data-i18n="aw.n2">Rendicontazione</span><kbd>⌘3</kbd></li>
                 <li><svg viewBox="0 0 16 16"><path d="M3.5 13V9.5M8 13V3.5M12.5 13V7"/></svg><span data-i18n="aw.n3">Statistiche</span><kbd>⌘4</kbd></li>
               </ul>
-              <div class="aw-settings"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="2.6"/><path d="M8 1.6v1.6M8 12.8v1.6M1.6 8h1.6M12.8 8h1.6M3.5 3.5l1.1 1.1M11.4 11.4l1.1 1.1M3.5 12.5l1.1-1.1M11.4 4.6l1.1-1.1"/></svg><span data-i18n="aw.n4">Impostazioni</span></div>
+              <div class="aw-settings" data-nav="settings" data-cur="navset"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="2.6"/><path d="M8 1.6v1.6M8 12.8v1.6M1.6 8h1.6M12.8 8h1.6M3.5 3.5l1.1 1.1M11.4 11.4l1.1 1.1M3.5 12.5l1.1-1.1M11.4 4.6l1.1-1.1"/></svg><span data-i18n="aw.n4">Impostazioni</span></div>
             </div>
 
             <div class="aw-pages">
@@ -237,6 +238,21 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Impostazioni › Assistenti AI -->
+              <div class="aw-page aw-set">
+                <div class="aw-top"><strong data-i18n="aw.n4">Impostazioni</strong><span class="aw-sp"></span><span class="aw-b aw-sq aw-compact"><svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="10" rx="2"/><rect x="9" y="5.2" width="3" height="5.6" rx="1" fill="currentColor" stroke="none"/></svg></span></div>
+                <div class="aw-body">
+                  <span class="aw-seg aw-stabs"><span data-i18n="aw.s0">Generale</span><span data-i18n="aw.s1">Tempo</span><span data-i18n="aw.s2">Piattaforme</span><span data-i18n="aw.s3">Connessioni</span><b data-i18n="aw.s4">Assistenti AI</b><span data-i18n="aw.s5">Sincronizzazione</span><span data-i18n="aw.s6">Dati</span></span>
+                  <div class="aw-gh"><strong data-i18n="aw.aih">Cosa possono leggere gli assistenti</strong><span data-i18n="aw.aisub">Chiedi a un assistente delle tue ore e fatti scrivere i report per il PM.</span></div>
+                  <div class="aw-group">
+                    <div class="aw-priv"><svg viewBox="0 0 16 16"><path d="M5 7V5.2a3 3 0 0 1 6 0V7"/><rect x="3.2" y="7" width="9.6" height="7" rx="1.6"/></svg><div><p><b data-i18n="aw.pr.r">Legge</b> <span data-i18n="aw.pr.r2">sessioni, progetti, attività, stime e i work item di Azure DevOps. Non può cambiare nulla.</span></p><p><b data-i18n="aw.pr.n">Non vede mai</b> <span data-i18n="aw.pr.n2">i token e i dati delle connessioni.</span></p><p><b data-i18n="aw.pr.g">Va a</b> <span data-i18n="aw.pr.g2">il servizio dell'assistente che usi.</span></p></div></div>
+                    <div class="aw-srow"><div><span data-i18n="aw.ai.on">Permetti agli assistenti AI di leggere DevTrack</span><small data-i18n="aw.ai.onh">Solo su questo dispositivo. Puoi spegnerlo quando vuoi.</small></div><i class="aw-switch" data-sw="1" data-cur="sw1"></i></div>
+                    <div class="aw-srow"><div><span data-i18n="aw.ai.do">Leggi anche i work item di Azure DevOps</span><small data-i18n="aw.ai.doh">Stato, Completed e Remaining Work, letti dal vivo con il tuo token.</small></div><i class="aw-switch" data-sw="2" data-cur="sw2"></i></div>
+                    <div class="aw-sstat"><i></i><span class="aw-st-off" data-i18n="aw.ai.off">Spento: nessun assistente legge i tuoi dati.</span><span class="aw-st-chk" data-i18n="aw.ai.chk">Verifico che gli assistenti raggiungano DevTrack…</span><span class="aw-st-ok" data-i18n="aw.ai.ok">Pronto: 10 strumenti, e i tuoi dati si leggono.</span></div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- Aggiungi attività -->
@@ -251,6 +267,26 @@
               <div class="aw-wi" data-cur="chk2"><i class="aw-chk" data-chk="2"></i><div><b data-i18n="aw.i2">Esportazione CSV</b><span>#5121 · User Story · Northwind.Portale · Active</span></div><span class="aw-b aw-st" data-i18n="aw.start">Avvia</span><span class="aw-b aw-sq">···</span></div>
               <div class="aw-wi"><i class="aw-chk"></i><div><b data-i18n="aw.i3">Conservazione del registro di controllo</b><span>#5130 · Task · Northwind.Portale · New</span></div><span class="aw-b aw-st" data-i18n="aw.start">Avvia</span><span class="aw-b aw-sq">···</span></div>
               <div class="aw-df"><span class="aw-selcount"></span><span class="aw-sp"></span><span class="aw-b" data-i18n="aw.cancel">Annulla</span><span class="aw-b aw-white aw-import" data-cur="import"></span></div>
+            </div>
+            <!-- Assistente AI: una finestra di chat a sé, sopra DevTrack -->
+            <div class="aw-chat" aria-hidden="true">
+              <div class="aw-ch-h"><span class="aw-ch-l"><i></i><i></i><i></i></span><b data-i18n="aw.ch.t">Assistente AI</b><span class="aw-ch-tag"><svg viewBox="0 0 16 16"><path d="M5 7V5.2a3 3 0 0 1 6 0V7"/><rect x="3.2" y="7" width="9.6" height="7" rx="1.6"/></svg><span data-i18n="aw.ch.tag">DevTrack · sola lettura</span></span></div>
+              <div class="aw-ch-body">
+                <p class="aw-q" data-i18n="aw.ch.q">Prepara il report della settimana per il PM di Portale clienti.</p>
+                <p class="aw-tool"><i class="aw-spin"></i><svg viewBox="0 0 12 12"><path d="M2.5 6.5 5 9l4.5-5.5"/></svg><span data-i18n="aw.ch.tool">Legge DevTrack · report del progetto</span></p>
+                <div class="aw-ans">
+                  <p class="aw-a" data-a="1"><b data-i18n="aw.ch.h">Portale clienti · settimana 47</b><span data-i18n="aw.ch.s">10 h 25 min, di cui 6 h 20 min su work item di Azure DevOps.</span></p>
+                  <div class="aw-at aw-a" data-a="2">
+                    <div class="aw-ath"><span data-i18n="aw.task">Attività</span><span data-i18n="aw.ch.o">Origine</span><span data-i18n="aw.ch.time">Tempo</span><span data-i18n="aw.ch.p">Avanzamento</span></div>
+                    <div class="aw-atr"><span>#4812 <span data-i18n="aw.w0">Login lento su reti deboli</span></span><span><em class="aw-tag-do">DevOps</em> Active</span><b>6 h 20 min</b><span data-i18n="aw.ch.p0">79% di 8 h</span></div>
+                    <div class="aw-atr"><span data-i18n="aw.a1">Revisione del codice</span><span><em data-i18n="aw.ch.loc">Locale</em></span><b>4 h 05 min</b><span>–</span></div>
+                    <div class="aw-atr aw-att"><span data-i18n="aw.ch.tot">Totale</span><span></span><b>10 h 25 min</b><span></span></div>
+                  </div>
+                  <p class="aw-a aw-warn" data-a="3"><span data-i18n="aw.ch.w">! 1 h 20 min su #4812 non ancora riportate su DevOps (Completed Work: 5 h).</span></p>
+                  <p class="aw-a aw-note" data-a="4"><span data-i18n="aw.ch.n">Importati oggi, ancora senza ore: #5103, #5110, #5121.</span></p>
+                </div>
+              </div>
+              <div class="aw-ch-in" data-cur="chatin"><span class="aw-ch-ph" data-i18n="aw.ch.ph">Chiedi qualcosa sulle tue ore…</span><span class="aw-ch-typed"></span><i class="aw-caret"></i><span class="aw-send" data-cur="send"><svg viewBox="0 0 12 12"><path d="M6 10V2.5M2.8 5.5 6 2.3l3.2 3.2"/></svg></span></div>
             </div>
           </div>
           <svg class="aw-cursor" viewBox="0 0 20 22" width="20" height="22" aria-hidden="true"><path d="M2 1.5v16l4.3-3.9 2.7 6.4 2.6-1.1-2.7-6.3h6z" fill="#fff" stroke="#000" stroke-width="1.2" stroke-linejoin="round"/></svg>
@@ -315,6 +351,7 @@
       <li><strong data-i18n="fact.0h"></strong><span data-i18n="fact.0"></span></li>
       <li><strong data-i18n="fact.1h"></strong><span data-i18n="fact.1"></span></li>
       <li><strong data-i18n="fact.2h"></strong><span data-i18n="fact.2"></span></li>
+      <li><strong data-i18n="fact.3h"></strong><span data-i18n="fact.3"></span></li>
     </ul>
     <footer class="foot">
       <span class="brand" role="img" aria-label="DevTrack"><svg class="logo" viewBox="47.85 45.12 304.65 80.82" fill="currentColor" aria-hidden="true" focusable="false"><path d="M88.26,109.16c-13.03,0-23.63-10.6-23.63-23.63s10.6-23.63,23.63-23.63,23.63,10.6,23.63,23.63-10.6,23.63-23.63,23.63ZM88.26,66.9c-10.27,0-18.63,8.36-18.63,18.63s8.36,18.63,18.63,18.63,18.63-8.36,18.63-18.63-8.36-18.63-18.63-18.63Z"/><path d="M88.26,45.12c-22.28,0-40.41,18.13-40.41,40.41,0,7.48,2.05,14.49,5.61,20.51,1.44-3.21,4.4-5.59,7.96-6.23-2.28-4.26-3.57-9.12-3.57-14.28,0-16.77,13.64-30.41,30.41-30.41s30.41,13.64,30.41,30.41-13.64,30.41-30.41,30.41c-5.16,0-10.02-1.3-14.28-3.57-.64,3.56-3.02,6.52-6.23,7.96,6.02,3.56,13.03,5.61,20.51,5.61,22.28,0,40.41-18.13,40.41-40.41s-18.13-40.41-40.41-40.41Z"/><path d="M63.33,104.79c-3.12,0-5.67,2.54-5.67,5.67s2.54,5.67,5.67,5.67,5.67-2.54,5.67-5.67-2.54-5.67-5.67-5.67Z"/><path d="M164.96,69.94c-2.91-1.41-6.32-2.11-10.23-2.11h-13.38v34.91h13.43c3.88,0,7.26-.72,10.16-2.16,2.89-1.44,5.15-3.47,6.76-6.11,1.62-2.63,2.42-5.73,2.42-9.29s-.8-6.63-2.4-9.24c-1.6-2.6-3.85-4.61-6.76-6.01ZM165.17,91.2c-.92,1.78-2.26,3.18-4.02,4.19-1.76,1.02-3.9,1.53-6.42,1.53h-5.92v-23.27h5.92c2.55,0,4.71.48,6.47,1.45,1.76.97,3.09,2.31,4,4.02.9,1.71,1.36,3.7,1.36,5.96s-.46,4.33-1.38,6.11Z"/><path d="M196.43,79.08c-1.88-1.03-4.09-1.55-6.64-1.55s-4.98.54-6.98,1.62c-2,1.08-3.56,2.59-4.68,4.51-1.12,1.92-1.67,4.16-1.67,6.72s.56,4.75,1.67,6.69c1.12,1.94,2.69,3.45,4.73,4.53,2.04,1.08,4.43,1.62,7.18,1.62,3.07,0,5.58-.69,7.54-2.06,1.96-1.37,3.34-3.26,4.15-5.65h-6.84c-.42.87-1.05,1.5-1.89,1.89-.84.39-1.84.58-3.01.58-2.1,0-3.68-.61-4.73-1.84-.74-.87-1.22-2.07-1.44-3.59h18.33c.06-.39.11-.8.15-1.24.03-.44.05-.91.05-1.43,0-2.49-.52-4.65-1.55-6.5-1.04-1.84-2.49-3.28-4.36-4.32ZM189.69,82.76c1.65,0,2.95.48,3.9,1.43.81.81,1.25,2.01,1.38,3.56h-11.04c.25-1.25.69-2.27,1.33-3.05,1.05-1.29,2.53-1.94,4.44-1.94Z"/><polygon points="215.86 94.9 210.29 78.01 202.49 78.01 212.23 102.74 219.26 102.74 229.01 78.01 221.4 78.01 215.86 94.9"/><polygon points="255.97 67.83 225.71 67.83 225.71 73.55 237.11 73.55 237.11 102.74 244.57 102.74 244.57 73.55 255.97 73.55 255.97 67.83"/><path d="M264.31,79.18c-1.01.84-1.8,1.97-2.38,3.38v-4.54h-7.13v24.73h7.27v-12.9c0-2,.55-3.42,1.65-4.24,1.1-.82,2.81-1.24,5.14-1.24.42,0,.78,0,1.07.02.29.02.52.06.68.12v-6.79c-.29-.13-.74-.19-1.36-.19-1.97,0-3.62.55-4.95,1.65Z"/><path d="M295.29,97.65v-10.91c0-2.97-.94-5.25-2.81-6.84-1.88-1.58-4.59-2.38-8.15-2.38s-6.13.73-8.1,2.18-3.12,3.3-3.44,5.53h6.93c.23-.81.7-1.42,1.43-1.84.73-.42,1.71-.63,2.93-.63,1.29,0,2.27.28,2.93.85.66.57.99,1.35.99,2.35v1.27l-6.11.86c-3.1.42-5.52,1.33-7.25,2.74-1.73,1.41-2.59,3.26-2.59,5.55,0,2.07.73,3.73,2.18,4.97,1.45,1.24,3.41,1.87,5.87,1.87,2.1,0,3.88-.47,5.33-1.41,1.17-.76,2.09-1.82,2.78-3.17.02.65.05,1.27.1,1.81.08.81.22,1.57.41,2.28h7.27c-.26-.94-.44-1.82-.56-2.64s-.17-1.64-.17-2.45ZM286.42,96.66c-1.07.82-2.36,1.24-3.88,1.24-.97,0-1.75-.21-2.33-.63-.58-.42-.87-1.03-.87-1.84,0-.9.31-1.62.92-2.13s1.57-.87,2.86-1.07l4.9-.75v2.3c0,1.1-.53,2.06-1.6,2.88Z"/><path d="M308.56,84.12c.86-.58,1.87-.87,3.03-.87,1.23,0,2.3.31,3.22.92.92.61,1.56,1.52,1.92,2.72h7.03c-.32-1.87-1.04-3.51-2.16-4.9-1.12-1.39-2.54-2.48-4.27-3.27-1.73-.79-3.68-1.19-5.84-1.19-2.59,0-4.87.55-6.84,1.65-1.97,1.1-3.52,2.62-4.63,4.56-1.12,1.94-1.67,4.15-1.67,6.64s.56,4.7,1.67,6.64,2.66,3.46,4.63,4.56c1.97,1.1,4.25,1.65,6.84,1.65,2.17,0,4.11-.4,5.84-1.19,1.73-.79,3.15-1.88,4.27-3.27,1.12-1.39,1.83-3.02,2.16-4.9h-7.03c-.36,1.2-.99,2.1-1.92,2.72-.92.61-2,.92-3.22.92-1.16,0-2.17-.29-3.03-.87-.86-.58-1.51-1.41-1.96-2.47-.45-1.07-.68-2.33-.68-3.78s.23-2.72.68-3.78c.45-1.07,1.11-1.89,1.96-2.47Z"/><polygon points="352.03 102.74 340.93 89.71 351.54 78.01 343.15 78.01 334.81 87.88 334.81 67.83 327.54 67.83 327.54 102.74 334.81 102.74 334.81 92.01 343.4 102.74 352.03 102.74"/></svg> <span id="foot-version"></span></span>

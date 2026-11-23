@@ -323,8 +323,8 @@ async function boot() {
   function paintApp() {
     const q = (scrollY - appBox.top) / appBox.span;                       // below 0 while it arrives, above 1 while it leaves
     const vin = sm(-0.22, -0.02, q) * (1 - sm(1.02, 1.22, q));
-    const stepNow = q < 0.2 ? 1 : q < 0.5 ? 2 : q < 0.8 ? 3 : 4;
-    const active = vin > 0.55 ? stepNow : (q >= 1 ? 4 : 0);                // nothing plays until the window is in
+    const stepNow = q < 0.16 ? 1 : q < 0.4 ? 2 : q < 0.62 ? 3 : q < 0.82 ? 4 : 5;
+    const active = vin > 0.55 ? stepNow : (q >= 1 ? 5 : 0);                // nothing plays until the window is in
     if (appWin._in !== vin) { appWin._in = vin; appPanel.style.setProperty('--in', vin.toFixed(3)); appPanel.style.visibility = vin < 0.02 ? 'hidden' : 'visible'; }
     if (appWin._ph !== stepNow) { appWin._ph = stepNow; phaseItems.forEach((li, i) => li.classList.toggle('on', i + 1 === stepNow)); }
     if (appWin._act !== active) { appWin._act = active; demo.setStep(active, { mid: still && qs.has('m') }); }

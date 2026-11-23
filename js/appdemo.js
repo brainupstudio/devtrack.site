@@ -1,5 +1,6 @@
-// The "In azione" window: four steps, each one a real gesture in the app
-// (type the task, start and stop, bring tasks in from Azure DevOps, report the hours).
+// The "In azione" window: five steps, each one a real gesture in the app
+// (type the task, start and stop, bring tasks in from Azure DevOps, report the hours, ask an AI
+// assistant for a report built from the same sessions).
 // A step plays once when it becomes active and ends in its final state; going back restores the
 // final state of the earlier step. With reduced motion every step shows its final state at once.
 
@@ -18,6 +19,7 @@ export function createAppDemo(win, { t, instant = false }) {
     typed: q('.aw-typed'), clock: q('.aw-clock'), total: q('.aw-total'), count: q('.aw-count'),
     open: q('.aw-opencount'), plan: q('.aw-plan'), sel: q('.aw-selcount'), imp: q('.aw-import'), cursor: q('.aw-cursor'), entered: q('.aw-done-n'),
     checks: [...win.querySelectorAll('.aw-chk[data-chk]')],
+    ctyped: q('.aw-ch-typed'),
   };
   let token = 0, step = 0, narrow = false, k = 1, tickFrom = 0, ticking = false, clockSecs = 0, raf = 0;
 
@@ -39,6 +41,16 @@ export function createAppDemo(win, { t, instant = false }) {
     win.classList.toggle('rep-copied', !!state.copied);
     win.classList.toggle('rep-done', !!state.done);
     el.entered.textContent = state.done ? 1 : 0;
+    // Impostazioni › Assistenti AI and the chat
+    win.dataset.ai = state.ai;
+    win.dataset.stat = state.stat;
+    win.dataset.tool = state.tool;
+    win.dataset.ans = state.ans;
+    win.classList.toggle('is-chat', !!state.chat);
+    win.classList.toggle('is-cfocus', !!state.cfocus);
+    win.classList.toggle('has-ctext', !!state.ctext);
+    win.classList.toggle('is-asked', !!state.asked);
+    el.ctyped.textContent = state.ctext === 'full' ? t('aw.ch.q') : state.ctext || '';
     win.dataset.checks = state.checks;
     win.dataset.imp = state.imp;
     el.typed.textContent = state.text === 'full' ? t('aw.a0') : state.text || '';
@@ -54,13 +66,15 @@ export function createAppDemo(win, { t, instant = false }) {
   function setClock(s) { clockSecs = s; el.clock.textContent = hms(s); }
 
   // final state of every step (0 = before the first one)
-  const BASE = { page: 'today', focus: false, text: '', suggest: false, hl: false, proj: false, run: false, row: false, dialog: false, cursor: false, checks: 0, imp: 0, total: BEFORE, clock: 0, ts: false, copied: false, done: false };
+  const BASE = { page: 'today', focus: false, text: '', suggest: false, hl: false, proj: false, run: false, row: false, dialog: false, cursor: false, checks: 0, imp: 0, total: BEFORE, clock: 0, ts: false, copied: false, done: false,
+    ai: 0, stat: 'off', chat: false, cfocus: false, ctext: '', asked: false, tool: 0, ans: 0 };
   const END = [
     BASE,
     { ...BASE, text: 'full', proj: true },
     { ...BASE, row: true, total: AFTER },
     { ...BASE, row: true, total: AFTER, page: 'work', imp: 3 },
     { ...BASE, row: true, total: AFTER, imp: 3, page: 'report', ts: true, copied: true, done: true },
+    { ...BASE, row: true, total: AFTER, imp: 3, ts: true, copied: true, done: true, page: 'settings', ai: 2, stat: 'ok', chat: true, asked: true, tool: 2, ans: 4 },
   ];
   // a state in the middle of a step, for stills and for people who do not get the motion
   const MID = {
@@ -68,8 +82,9 @@ export function createAppDemo(win, { t, instant = false }) {
     2: { ...END[1], run: true, clock: SESSION, cursor: true },
     3: { ...END[2], page: 'work', dialog: true, checks: 3, cursor: true },
     4: { ...END[3], page: 'report', cursor: true },
+    5: { ...END[4], page: 'settings', ai: 2, stat: 'ok', chat: true, cfocus: true, ctext: 'full', cursor: true },
   };
-  const MID_POINT = { 1: 'sug0', 2: 'stop', 3: 'import', 4: 'tabts' };
+  const MID_POINT = { 1: 'sug0', 2: 'stop', 3: 'import', 4: 'tabts', 5: 'send' };
 
   // ---------- small animation helpers ----------
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -155,6 +170,27 @@ export function createAppDemo(win, { t, instant = false }) {
       if (!narrow && !(await click('conf0', live, -30))) return;          // on a phone the window has no room for the Confirm column
       paint({ ...END[4], cursor: true });
       await wait(600); if (live()) paint({ cursor: false });
+    },
+    async 5(live) {
+      paint({ ...END[4], cursor: true }); await wait(250); if (!live()) return;
+      if (!narrow) { if (!(await click('navset', live, -40))) return; }
+      paint({ page: 'settings' }); await wait(650); if (!live()) return;       // what is read, before the switch
+      if (!(await click('sw1', live))) return;
+      paint({ ai: 1 }); await wait(380); if (!live()) return;
+      if (!(await click('sw2', live))) return;
+      paint({ ai: 2, stat: 'chk' }); await wait(900); if (!live()) return;
+      paint({ stat: 'ok' }); await wait(650); if (!live()) return;
+      paint({ chat: true }); await wait(550); if (!live()) return;             // the assistant, in a window of its own
+      if (!(await click('chatin', live, -120))) return;
+      paint({ cfocus: true });
+      const question = t('aw.ch.q');
+      for (let i = 1; i <= question.length; i += 2) { await wait(28); if (!live()) return; paint({ ctext: question.slice(0, i) }); }
+      paint({ ctext: 'full' }); await wait(260); if (!live()) return;
+      if (!(await click('send', live))) return;
+      paint({ ctext: '', cfocus: false, asked: true }); await wait(380); if (!live()) return;
+      paint({ tool: 1 }); await wait(1100); if (!live()) return;               // DevTrack computes the figures
+      paint({ tool: 2, cursor: false });
+      for (let a = 1; a <= 4; a++) { await wait(a === 1 ? 260 : 420); if (!live()) return; paint({ ans: a }); }
     },
   };
 

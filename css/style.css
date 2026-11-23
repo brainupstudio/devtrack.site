@@ -220,7 +220,8 @@ details p { font-size: 15px; max-width: 60ch; padding: 2px 0 8px 18px; color: #c
 .warn { color: var(--warn); }
 .unsigned { margin-top: 18px; font-size: 17px; line-height: 1.45; max-width: 56ch; color: #b4b4b8; }
 #dl-version { color: var(--ink); font-weight: 600; }
-.facts { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; font-size: 16px; line-height: 1.45; color: #c4c4c6; }
+.facts { margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; font-size: 16px; line-height: 1.45; color: #c4c4c6; }
+@media (min-width: 861px) and (max-width: 1180px) { .facts { grid-template-columns: repeat(2, 1fr); } }   /* four facts in two rows where four columns are too narrow */
 .facts li { padding-top: 16px; border-top: 1px solid #34343a; max-width: 36ch; display: grid; gap: 4px; }
 .facts strong { color: var(--ink); font-size: 18px; font-weight: 650; letter-spacing: -.01em; }
 .mobile-note { margin-top: 24px; font-size: 17px; color: var(--ink); }
