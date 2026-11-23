@@ -35,8 +35,8 @@
 .aw-lights { height: 18px; display: flex; align-items: center; gap: 8px; padding-left: 4px; margin-bottom: 26px; }
 .aw-lights i { width: 12px; height: 12px; border-radius: 50%; background: #3d3d3a; }
 .aw-rail { width: 17px; height: 17px; margin-left: 15px; color: var(--tx2); }
-.aw-logo { display: flex; align-items: baseline; gap: 7px; padding: 0 7px 22px; font: 700 17px/1 "Fira Code Wordmark", var(--mono); }
-.aw-logo img { height: 24px; width: auto; transform: translateY(1px); }
+.aw-logo { display: flex; padding: 0 7px 22px; }
+.aw-logo .logo { height: 27px; }
 .aw-side ul { display: grid; gap: 5px; }
 .aw-side li, .aw-settings { display: flex; align-items: center; gap: 12px; height: 37px; padding: 0 9px; border-radius: 8px; font-size: 14px; transition: background .25s; }
 .aw-side li svg, .aw-settings svg { width: 17px; height: 17px; color: var(--amber); flex: none; }
