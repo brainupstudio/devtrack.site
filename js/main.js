@@ -132,7 +132,7 @@ function measure() {
 }
 let sceneApi = null;                             // the 3D scene, once it is built
 const APP = 3;                                   // index of the app section among the panels
-const APP_STOPS = [0.05, 0.35, 0.65, 0.95];      // one stop per step of the app window
+const APP_STOPS = [0.05, 0.28, 0.51, 0.72, 0.93];   // one stop per step of the app window, inside the step's range in paintApp
 const appPanel = panels[APP];
 let appBox = { top: 0, span: 1 }, snaps = [], appDemo = null;
 // page state -> scene state: the sphere holds its "whole" state while the app section is on
@@ -323,6 +323,7 @@ async function boot() {
   function paintApp() {
     const q = (scrollY - appBox.top) / appBox.span;                       // below 0 while it arrives, above 1 while it leaves
     const vin = sm(-0.22, -0.02, q) * (1 - sm(1.02, 1.22, q));
+    // keep these bounds and APP_STOPS together: every step needs a stop inside its own range
     const stepNow = q < 0.16 ? 1 : q < 0.4 ? 2 : q < 0.62 ? 3 : q < 0.82 ? 4 : 5;
     const active = vin > 0.55 ? stepNow : (q >= 1 ? 5 : 0);                // nothing plays until the window is in
     if (appWin._in !== vin) { appWin._in = vin; appPanel.style.setProperty('--in', vin.toFixed(3)); appPanel.style.visibility = vin < 0.02 ? 'hidden' : 'visible'; }
