@@ -50,6 +50,7 @@
         <li><a href="#inizio"><span lang="it">Primi passi</span><span lang="en">Getting started</span></a></li>
         <li><a href="#oggi"><span lang="it">Oggi e il timer</span><span lang="en">Today and the timer</span></a></li>
         <li><a href="#lavoro"><span lang="it">Lavoro</span><span lang="en">Work</span></a></li>
+        <li><a href="#tag">Tag</a></li>
         <li><a href="#devops">Azure DevOps</a></li>
         <li><a href="#rendicontazione"><span lang="it">Rendicontazione</span><span lang="en">Report Time</span></a></li>
         <li><a href="#assistenti"><span lang="it">Assistenti AI</span><span lang="en">AI assistants</span></a></li>
@@ -69,12 +70,12 @@
         <h2><span lang="it">Primi passi</span><span lang="en">Getting started</span></h2>
         <div lang="it">
           <p>DevTrack è un'app per macOS, Windows e Linux. La scarichi dalla <a href="./#download">pagina di download</a>, dove trovi anche il comando per installarla dal Terminale senza gli avvisi del sistema.</p>
-          <p>La finestra ha quattro pagine nella barra laterale: <b>Oggi</b>, dove tracci il tempo; <b>Lavoro</b>, con progetti, clienti e attività; <b>Rendicontazione</b>, con i valori da inserire nei tuoi sistemi; <b>Statistiche</b>. In fondo ci sono le <b>Impostazioni</b>.</p>
+          <p>La finestra ha quattro pagine nella barra laterale: <b>Oggi</b>, dove tracci il tempo; <b>Lavoro</b>, con attività, progetti, clienti e tag; <b>Rendicontazione</b>, con i valori da inserire nei tuoi sistemi; <b>Statistiche</b>. In fondo ci sono le <b>Impostazioni</b>.</p>
           <p>Se vuoi prima guardarti intorno, in Impostazioni › Dati c'è <b>Aggiungi dati di esempio</b>: progetti, attività, sessioni e due destinazioni già pronte.</p>
         </div>
         <div lang="en">
           <p>DevTrack is an app for macOS, Windows and Linux. Get it from the <a href="./#download">download page</a>, which also has the command that installs it from a terminal without the system's warnings.</p>
-          <p>The window has four pages in the sidebar: <b>Today</b>, where you track time; <b>Work</b>, with projects, clients and tasks; <b>Report Time</b>, with the values to enter into your systems; <b>Statistics</b>. <b>Settings</b> sits at the bottom.</p>
+          <p>The window has four pages in the sidebar: <b>Today</b>, where you track time; <b>Work</b>, with tasks, projects, clients and tags; <b>Report Time</b>, with the values to enter into your systems; <b>Statistics</b>. <b>Settings</b> sits at the bottom.</p>
           <p>To look around first, Settings › Data has <b>Add sample data</b>: projects, tasks, sessions and two destinations, ready to use.</p>
         </div>
       </section>
@@ -84,23 +85,25 @@
         <h2><span lang="it">Oggi e il timer</span><span lang="en">Today and the timer</span></h2>
         <div lang="it">
           <h3>Avviare una sessione</h3>
-          <p>In alto c'è il timer. Nel campo scrivi su cosa stai lavorando: DevTrack ti propone le attività e i progetti che usi di più. Se scegli un'attività, progetto e cliente si compilano da soli; altrimenti li scegli dalle due parole sottolineate sotto il campo. Puoi anche partire dal cliente: i progetti si restringono ai suoi.</p>
+          <p>In alto c'è il timer. Nel campo scrivi su cosa stai lavorando: DevTrack ti propone le attività e i progetti che usi di più. Se scegli un'attività, progetto e cliente si compilano da soli; altrimenti li scegli dalle parole sottolineate sotto il campo. Puoi anche partire dal cliente: i progetti si restringono ai suoi. La terza parola, <b>Tag</b>, dice che tipo di lavoro stai facendo; puoi anche scrivere <code>#parola</code> in fondo all'attività.</p>
           <p><b>Avvia</b> fa partire il tempo. Mentre corre hai <b>Pausa</b>, che ferma il conteggio e lo riprende come una nuova parte della stessa sessione, e <b>Ferma</b>, che salva la sessione con gli orari reali. Una sessione si può avviare anche senza progetto: la completi dopo.</p>
           <h3>La giornata</h3>
-          <p>Sotto il timer scegli il periodo (giorno, settimana o mese) e la vista: <b>Elenco</b>, una riga per sessione; <b>Calendario</b>, le sessioni come blocchi da spostare o allungare; <b>Timesheet</b>, una griglia per attività e giorno. Accanto al totale registrato, un riquadro ti dice se tutte le sessioni sono complete o se a qualcuna manca il progetto.</p>
+          <p>Sotto il timer scegli il periodo (giorno, settimana o mese) e la vista: <b>Elenco</b>, una riga per sessione; <b>Per attività</b>, una riga per attività con il totale del giorno, da aprire per vederne le sessioni; <b>Calendario</b>, le sessioni come blocchi da spostare o allungare da un bordo o dall'altro; <b>Timesheet</b>, una griglia per attività e giorno. Accanto al totale registrato, un riquadro ti dice se tutte le sessioni sono complete o se a qualcuna manca il progetto.</p>
+          <p>Un clic su un <code>#tag</code> di una sessione, o il menu dei tag a destra del totale, mostra solo le sessioni con quel tag. Per mettere o togliere un tag a più sessioni insieme, spuntale (la casella al posto del pallino, oppure <b>Seleziona</b> nel menu «…») e usa la barra che compare in cima all'elenco.</p>
           <p>Per una sessione dimenticata c'è <b>+ Aggiungi sessione</b>. Ogni riga mostra le conversioni della sessione per ogni piattaforma, si riprende con il pulsante di avvio e si modifica dal menu «…».</p>
           <h3>La finestra compatta</h3>
-          <p>Il pulsante in alto a destra riduce DevTrack a una piccola finestra con il solo timer, che può restare sopra le altre app mentre lavori.</p>
+          <p>Il pulsante in alto a destra riduce DevTrack a una piccola finestra con il timer, che può restare sopra le altre app mentre lavori. Sotto ci sono le sessioni recenti in tre viste: elenco, per attività e calendario di un giorno. Un clic su una sessione la modifica lì, senza aprire la finestra grande.</p>
         </div>
         <div lang="en">
           <h3>Starting a session</h3>
-          <p>The timer sits at the top. Type what you're working on in its field: DevTrack suggests the tasks and projects you use most. Pick a task and its project and client fill themselves in; otherwise choose them from the two underlined words under the field. You can also start from the client: the projects narrow to theirs.</p>
+          <p>The timer sits at the top. Type what you're working on in its field: DevTrack suggests the tasks and projects you use most. Pick a task and its project and client fill themselves in; otherwise choose them from the underlined words under the field. You can also start from the client: the projects narrow to theirs. The third word, <b>Tags</b>, says what kind of work it is; you can also type <code>#word</code> at the end of the task.</p>
           <p><b>Start</b> sets the clock running. While it runs you have <b>Pause</b>, which stops counting and continues as a new piece of the same session, and <b>Stop</b>, which saves the session with its real times. A session can start without a project: you complete it later.</p>
           <h3>Your day</h3>
-          <p>Under the timer choose the period (day, week or month) and the view: <b>List</b>, one row per session; <b>Calendar</b>, sessions as blocks you can move or stretch; <b>Timesheet</b>, a grid by task and day. Next to the recorded total, a box tells you whether every session is complete or some still lack a project.</p>
+          <p>Under the timer choose the period (day, week or month) and the view: <b>List</b>, one row per session; <b>By task</b>, one row per task with the day's total, to open for its sessions; <b>Calendar</b>, sessions as blocks you can move or stretch from either edge; <b>Timesheet</b>, a grid by task and day. Next to the recorded total, a box tells you whether every session is complete or some still lack a project.</p>
+          <p>A click on a session's <code>#tag</code>, or the tag menu to the right of the total, shows only the sessions with that tag. To add or remove a tag on several sessions at once, tick them (the box in the dot's place, or <b>Select</b> in the “…” menu) and use the bar that appears at the top of the list.</p>
           <p>For a session you forgot, use <b>+ Add session</b>. Every row shows the session's conversions for each platform, is resumed with its play button and edited from its “…” menu.</p>
           <h3>The compact window</h3>
-          <p>The button at the top right shrinks DevTrack to a small window with just the timer, which can stay above your other apps while you work.</p>
+          <p>The button at the top right shrinks DevTrack to a small window with the timer, which can stay above your other apps while you work. Below it are your recent sessions in three views: list, by task and one day's calendar. A click on a session edits it right there, without opening the main window.</p>
         </div>
       </section>
 
@@ -108,14 +111,39 @@
       <section id="lavoro">
         <h2><span lang="it">Lavoro</span><span lang="en">Work</span></h2>
         <div lang="it">
-          <p>Qui organizzi su cosa lavori, in tre schede: <b>Progetti</b>, <b>Attività</b> e <b>Clienti</b>. Ogni progetto ha un colore, un cliente facoltativo e le sue attività; il colore lo ritrovi nel timer, nelle sessioni e nelle barre della giornata.</p>
-          <p>Le attività possono essere tue, create in DevTrack, oppure importate da Azure DevOps. Nell'elenco le filtri per cliente, progetto (anche «senza»), origine e stato.</p>
+          <p>Qui organizzi su cosa lavori, in quattro schede: <b>Attività</b>, <b>Progetti</b>, <b>Clienti</b> e <b>Tag</b>. Ogni progetto ha un colore, un cliente facoltativo e le sue attività; il colore lo ritrovi nel timer, nelle sessioni e nelle barre della giornata.</p>
+          <p>Le attività possono essere tue, create in DevTrack, oppure importate da Azure DevOps. Nell'elenco le filtri per cliente, progetto (anche «senza»), origine, stime e tag. Ogni attività mostra i tag delle sue sessioni una volta sola; aprendola li vedi tutti, con su quante sessioni è ciascuno.</p>
           <p>Aprendo un progetto vedi il tempo registrato, le sessioni, le attività aperte e le <b>ore previste</b>: la somma delle stime delle sue attività, con una barra che mostra a che punto sei.</p>
         </div>
         <div lang="en">
-          <p>This is where you organise what you work on, in three tabs: <b>Projects</b>, <b>Tasks</b> and <b>Clients</b>. Every project has a colour, an optional client and its tasks; you see its colour in the timer, in the sessions and in the day's bars.</p>
-          <p>Tasks can be your own, created in DevTrack, or imported from Azure DevOps. Filter the list by client, project (including “none”), source and status.</p>
+          <p>This is where you organise what you work on, in four tabs: <b>Tasks</b>, <b>Projects</b>, <b>Clients</b> and <b>Tags</b>. Every project has a colour, an optional client and its tasks; you see its colour in the timer, in the sessions and in the day's bars.</p>
+          <p>Tasks can be your own, created in DevTrack, or imported from Azure DevOps. Filter the list by client, project (including “none”), source, estimates and tag. Each task shows its sessions' tags once; open it to see them all, with how many sessions carry each.</p>
           <p>Open a project to see its tracked time, sessions, open tasks and <b>planned hours</b>: the sum of its tasks' estimates, with a bar that shows where you stand.</p>
+        </div>
+      </section>
+
+      <!-- Tag -->
+      <section id="tag">
+        <h2>Tag</h2>
+        <div lang="it">
+          <p>I tag dicono che tipo di lavoro hai fatto, al di là del progetto: <code>#sviluppo</code>, <code>#test</code>, <code>#riunione</code>. Stanno sulla singola sessione, quindi le sessioni di una stessa attività possono averne di diversi: una mattina di sviluppo e mezz'ora di revisione restano distinte.</p>
+          <p>Sono un solo elenco, uguale su tutti i tuoi dispositivi e senza doppioni per maiuscole: <code>Bug</code> e <code>bug</code> sono lo stesso tag. La ricerca trova anche le varianti scritte in modo diverso («code-review» trova «Code review») e non ti propone di crearne una copia.</p>
+          <ul class="g-list">
+            <li><b>Metterli:</b> dal link Tag del timer, scrivendo <code>#parola</code>, dalla modifica di una sessione o, per più sessioni insieme, dalla barra della selezione in Oggi.</li>
+            <li><b>Filtrare:</b> in Oggi, nelle Statistiche (anche «Senza tag») e in Lavoro › Attività.</li>
+            <li><b>Gestirli:</b> in Lavoro › Tag li rinomini, li unisci e li elimini; le sessioni si aggiornano, e c'è Annulla.</li>
+          </ul>
+          <p class="g-note">I tag sono informativi: non cambiano codici né valori della rendicontazione. Se rinomini un tag mentre un altro dispositivo non ancora sincronizzato usa il vecchio nome, il vecchio tag può ricomparire: rinominalo con il nome nuovo e DevTrack ti propone di unirli.</p>
+        </div>
+        <div lang="en">
+          <p>Tags say what kind of work you did, beyond the project: <code>#development</code>, <code>#testing</code>, <code>#meeting</code>. They sit on each session, so the sessions of one task can have different ones: a morning of development and half an hour of review stay apart.</p>
+          <p>They are one list, the same on all your devices and with no copies by capitals: <code>Bug</code> and <code>bug</code> are the same tag. The search also finds a tag written another way (“code-review” finds “Code review”) and doesn't offer to create a copy.</p>
+          <ul class="g-list">
+            <li><b>Setting them:</b> from the timer's Tags link, by typing <code>#word</code>, from a session's editor or, for several sessions at once, from the selection bar on Today.</li>
+            <li><b>Filtering:</b> on Today, in Statistics (also “No tags”) and in Work › Tasks.</li>
+            <li><b>Managing them:</b> in Work › Tags you rename, merge and delete them; the sessions follow, and there is Undo.</li>
+          </ul>
+          <p class="g-note">Tags are informative: they change no code or value in Report Time. If you rename a tag while another device, not yet synced, still uses the old name, the old tag may come back: rename it to the new name and DevTrack offers to merge the two.</p>
         </div>
       </section>
 
@@ -188,6 +216,7 @@
             <li>Collega il tuo assistente. Per <b>Claude Desktop</b> premi <b>Aggiungi a Claude Desktop</b>: DevTrack aggiunge la sua voce alla configurazione, dopo averne tenuto una copia, e poi riavvii Claude Desktop. Per <b>Claude Code</b> c'è un comando da eseguire una volta nel Terminale; per gli altri (Codex CLI, Cursor…) il comando e i suoi argomenti.</li>
             <li>Chiedi. In Claude Desktop il menu <b>+</b> offre anche tre report pronti: settimanale per il PM, stato di un progetto, riepilogo per cliente.</li>
           </ol>
+          <p>Anche i tag fanno parte delle risposte: «Quanto tempo è andato in test questo mese?», «Un report per tag di novembre».</p>
           <p>Con <b>Leggi anche i work item di Azure DevOps</b>, l'assistente vede anche i work item assegnati a te e, quando serve, ne legge uno dal vivo: stato, Completed e Remaining Work, ultimi cambiamenti. Nei report compare allora l'avanzamento rispetto alle stime, con le ore registrate in DevTrack accanto a quelle dichiarate su DevOps.</p>
           <p class="g-note">Sola lettura: l'assistente non può cambiare nulla, né in DevTrack né su Azure DevOps, e non vede mai i token. Quello che legge va però al servizio dell'assistente che usi (Anthropic per Claude, OpenAI per ChatGPT e Codex). Per un report da mandare fuori dal team chiedilo anonimizzato: i clienti diventano «Cliente A», «Cliente B» e le note restano fuori.</p>
         </div>
@@ -198,6 +227,7 @@
             <li>Connect your assistant. For <b>Claude Desktop</b> press <b>Add to Claude Desktop</b>: DevTrack adds its entry to the configuration, after keeping a copy of it, and you restart Claude Desktop. For <b>Claude Code</b> there is a command to run once in a terminal; for the others (Codex CLI, Cursor…) the command and its arguments.</li>
             <li>Ask. In Claude Desktop the <b>+</b> menu also offers three ready-made reports: weekly for your PM, project status, client summary.</li>
           </ol>
+          <p>Tags are part of the answers too: “How much time went into testing this month?”, “A report by tag for November”.</p>
           <p>With <b>Also read Azure DevOps work items</b>, the assistant also sees the work items assigned to you and, when needed, reads one live: state, Completed and Remaining Work, latest changes. Reports then show progress against the estimates, with the hours tracked in DevTrack next to those entered in DevOps.</p>
           <p class="g-note">Read only: the assistant can't change anything, in DevTrack or in Azure DevOps, and never sees your tokens. What it reads does go to the service of the assistant you use (Anthropic for Claude, OpenAI for ChatGPT and Codex). For a report going outside the team, ask for it anonymized: clients become “Client A”, “Client B” and notes are left out.</p>
         </div>
@@ -206,8 +236,8 @@
       <!-- Statistiche -->
       <section id="statistiche">
         <h2><span lang="it">Statistiche</span><span lang="en">Statistics</span></h2>
-        <p lang="it">Il tempo registrato per giorno, per progetto e per attività, nel periodo che scegli. Utile per capire dove vanno le ore della settimana o del mese.</p>
-        <p lang="en">Your tracked time by day, by project and by task, over the period you choose. Useful to see where the hours of the week or the month went.</p>
+        <p lang="it">Il tempo registrato per giorno, per progetto, per attività e per tag, nel periodo che scegli. Utile per capire dove vanno le ore della settimana o del mese. Puoi filtrare per progetto e per tag; un clic su un tag della sezione Tag mostra solo le sue sessioni.</p>
+        <p lang="en">Your tracked time by day, by project, by task and by tag, over the period you choose. Useful to see where the hours of the week or the month went. Filter by project and by tag; a click on a tag in the Tags section shows only its sessions.</p>
       </section>
 
       <!-- Importare ed esportare -->
